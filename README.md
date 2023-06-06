@@ -115,7 +115,7 @@ After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio
 
 ## 🚀 Link to Backend <a name="backend"></a>
 
-- [hello-rails-back-end](https://github.com/MarcoAurelioAntonio/Appointment-Server-Side)
+- [Appointment-Server-Side](https://github.com/MarcoAurelioAntonio/Appointment-Server-Side)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
