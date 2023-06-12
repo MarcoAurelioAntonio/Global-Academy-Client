@@ -5,7 +5,7 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
   new Promise((resolve, reject) => {
     axios.get('http://localhost:3000/api/v1/courses')
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         resolve({ data });
       })
       .catch((error) => {
