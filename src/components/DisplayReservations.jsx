@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAllReservationsApi } from '../redux/displayreservationsSlice';
 
 const DisplayReservations = () => (
   <div>
