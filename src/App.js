@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import Courses from './components/Courses';
 import Reservations from './components/Reservations';
+import DisplayReservations from './components/DisplayReservations';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/reservations',
         element: <Reservations />,
+      },
+      {
+        path: '/all_reservations',
+        element: <DisplayReservations />,
       },
     ],
   },
