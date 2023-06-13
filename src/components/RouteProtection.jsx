@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const RouteProtection = ({ children }) => {
   const currentUserId = useSelector((store) => store.users.current_user_id);
-  console.log('CURRENT USER ID : ', currentUserId);
   if (currentUserId) return children;
   return <Navigate to="/login" />;
 };
