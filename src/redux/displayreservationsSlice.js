@@ -2,15 +2,16 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getAllReservationsApi = createAsyncThunk(
-  'apireservations/fetchAllReservations',
+  'api/getAllReservationsApi',
   async () => {
-    const response = await axios.get('http://localhost:3001/reservations');
+    const response = await axios.get('http://localhost:3000/api/v1/users/3/reservations');
+    // console.log(response.data);
     return response.data;
   },
 );
 
 const displayreservationsSlice = createSlice({
-  name: 'apireservations',
+  name: 'api',
   initialState: {
     data: [],
     status: null,
