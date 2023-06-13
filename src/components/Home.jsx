@@ -21,9 +21,19 @@ const Home = () => {
 
   return (
     <section className="home-container">
-      <h1>LATEST COURSES</h1>
-      <h5>Please select a course</h5>
-      <Courses courses={courses} />
+      <div className="home-wrapper">
+        <div className="over-wrapper">
+          <h1 className="home-title">LATEST COURSES</h1>
+          <h5>Please select a course</h5>
+        </div>
+        {
+          courses.length === 0 ? (
+            <p>No courses available</p>
+          ) : (
+            <Courses courses={courses} />
+          )
+        }
+      </div>
     </section>
   );
 };
