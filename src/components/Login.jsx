@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
+  // const [errorMessage, seterrorMessage] = useState('');
+  const status = useSelector((store) => store.users.status);
+
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const handleChange = (ev) => {
     setInputs((prevState) => ({
@@ -15,6 +20,9 @@ const Login = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
+    if (status === 'succeed') {
+      history('/reservations');
+    }
   };
 
   return (
@@ -24,18 +32,24 @@ const Login = () => {
 
         <div className="container">
           <label htmlFor="name">
-            <b>Username</b>
+            Username
+            <input
+              type="text"
+              placeholder="Enter Username"
+              value={inputs.title}
+              id="name"
+              name="name"
+              required
+              onChange={handleChange}
+              minLength={3}
+            />
           </label>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            value={inputs.title}
-            id="name"
-            name="name"
-            required
-            onChange={handleChange}
-          />
           <button type="submit">Login</button>
+        </div>
+        <div className="container">
+          <ul>
+            <li>{ status === 'failed' && 'Username already taken,please try another one.' }</li>
+          </ul>
         </div>
       </form>
     </section>
