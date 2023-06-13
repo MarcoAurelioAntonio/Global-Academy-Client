@@ -17,7 +17,7 @@ const DisplayReservations = () => {
 
   return (
     <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'auto',
+      display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column',
     }} // some style to see the content. DETELE IT
     >
       <h1>DisplayReservations</h1>
@@ -28,19 +28,19 @@ const DisplayReservations = () => {
         {apiData.map((reservation) => (
           <li key={reservation.id}>
             <h2>
-              NAME:
+              NAME:&nbsp;&nbsp;&nbsp;&nbsp;
               {reservation.course.name}
             </h2>
             <p>
-              DESCRIPTION:
+              DESCRIPTION:&nbsp;&nbsp;&nbsp;
               {reservation.course.description}
             </p>
             <p>
-              Start Date:
+              Start Date:&nbsp;&nbsp;&nbsp;
               {reservation.course.start_date}
             </p>
             <p>
-              End Date:
+              End Date:&nbsp;&nbsp;&nbsp;
               {reservation.course.end_date}
             </p>
             <br />

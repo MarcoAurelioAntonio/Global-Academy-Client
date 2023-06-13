@@ -5,7 +5,7 @@ export const getAllReservationsApi = createAsyncThunk(
   'api/getAllReservationsApi',
   async () => {
     const response = await axios.get('http://localhost:3000/api/v1/users/3/reservations');
-    // console.log(response.data);
+    console.log(response.data);
     return response.data;
   },
 );
