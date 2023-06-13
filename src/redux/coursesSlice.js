@@ -1,11 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
+export const getAllCoursesApi = createAsyncThunk('courses/fetch', () => (
   new Promise((resolve, reject) => {
     axios.get('http://localhost:3000/api/v1/courses')
       .then(({ data }) => {
-        // console.log(data);
         resolve({ data });
       })
       .catch((error) => {
@@ -31,8 +30,8 @@ const coursesSlice = createSlice({
       }))
       .addCase(getAllCoursesApi.fulfilled, (state, { payload }) => ({
         ...state,
-        courses: payload.array,
-        status: 'succeed',
+        courses: payload.data,
+        status: 'succeeded',
       }))
       .addCase(getAllCoursesApi.rejected, (state, { error }) => ({
         ...state,

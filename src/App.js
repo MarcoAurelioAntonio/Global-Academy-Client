@@ -2,16 +2,16 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import Courses from './components/Courses';
 import Reservations from './components/Reservations';
+import Home from './components/Home';
 
 const router = createBrowserRouter([
   {
     path: '/',
     children: [
       {
-        path: '/courses',
-        element: <Courses />,
+        index: true,
+        element: <Home />,
       },
       {
         path: '/reservations',
