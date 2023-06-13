@@ -5,18 +5,24 @@ import store from './redux/store';
 import Courses from './components/Courses';
 import Reservations from './components/Reservations';
 import DisplayReservations from './components/DisplayReservations';
+import Login from './components/Login';
+import RouteProtection from './components/RouteProtection';
 
 const router = createBrowserRouter([
   {
     path: '/',
     children: [
       {
+        path: '/login',
+        element: <Login />,
+      },
+      {
         path: '/courses',
-        element: <Courses />,
+        element: <RouteProtection><Courses /></RouteProtection>,
       },
       {
         path: '/reservations',
-        element: <Reservations />,
+        element: <RouteProtection><Reservations /></RouteProtection>,
       },
       {
         path: '/all_user_reservations',
