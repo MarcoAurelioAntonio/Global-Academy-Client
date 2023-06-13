@@ -5,6 +5,7 @@ import store from './redux/store';
 import Courses from './components/Courses';
 import Reservations from './components/Reservations';
 import Login from './components/Login';
+import RouteProtection from './components/RouteProtection';
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses',
-        element: <Courses />,
+        element: <RouteProtection><Courses /></RouteProtection>,
       },
       {
         path: '/reservations',
-        element: <Reservations />,
+        element: <RouteProtection><Reservations /></RouteProtection>,
       },
     ],
   },

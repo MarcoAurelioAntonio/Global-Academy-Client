@@ -6,10 +6,8 @@ export const postUserToAPI = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post('http://localhost:3000/api/v1/users', data);
-      console.log(data);
       return response.data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error);
     }
   },

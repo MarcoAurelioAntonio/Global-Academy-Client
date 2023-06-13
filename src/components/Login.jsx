@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
   const dispatch = useDispatch();
-  const currentUserId = useSelector((store) => store.users.current_user_id);
-  console.log('BEFORE ID : ', currentUserId);
+
   const handleChange = (ev) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -16,22 +15,22 @@ const Login = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
-    console.log('AFTER ID : ', currentUserId);
   };
+
   return (
     <section className="content">
       <form onSubmit={handleClick}>
         <div className="imgcontainer">LOGO HERE</div>
 
         <div className="container">
-          <label htmlFor="username">
+          <label htmlFor="name">
             <b>Username</b>
           </label>
           <input
             type="text"
             placeholder="Enter Username"
             value={inputs.title}
-            id="username"
+            id="name"
             name="name"
             required
             onChange={handleChange}
