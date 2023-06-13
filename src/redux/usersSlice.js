@@ -1,18 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const postUserToAPI = createAsyncThunk('post/user', () => (
-  new Promise((resolve, reject) => {
-    axios.get('http://localhost:3000/api/v1/users')
-      .then(({ data }) => {
-        console.log(data);
-        resolve({ data });
-      })
-      .catch((error) => {
-        reject(error);
-      });
-  })
-));
+export const postUserToAPI = createAsyncThunk(
+  'users/postUserToAPI',
+  async (data, thunkAPI) => {
+    try {
+      const response = await axios.post('http://localhost:3000/api/v1/users', data);
+      console.log(data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
 
 const usersSlice = createSlice({
   name: 'users',
