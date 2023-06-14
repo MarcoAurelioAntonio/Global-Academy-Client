@@ -20,6 +20,11 @@ const Login = () => {
     dispatch(postUserToAPI(inputs));
   };
 
+  const handleRegisterClick = (ev) => {
+    ev.preventDefault();
+    dispatch(postUserToAPI(inputs));
+  };
+
   // Redirect if user successfully logged in
   if (status === 'succeed') {
     setTimeout(() => history('/'));
@@ -46,6 +51,9 @@ const Login = () => {
           </label>
           <br />
           <button type="submit">Login</button>
+          <button type="button" onClick={handleRegisterClick}>
+            Register
+          </button>
         </div>
         <div className="container">
           <ul>

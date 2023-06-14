@@ -16,6 +16,20 @@ export const postUserToAPI = createAsyncThunk(
   },
 );
 
+export const getUserFromAPI = createAsyncThunk(
+  'users/getUserFromAPI',
+  async (username, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/api/v1/users/${username}`,
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.name[0]);
+    }
+  },
+);
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
