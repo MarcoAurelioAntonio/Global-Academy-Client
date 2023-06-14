@@ -65,12 +65,13 @@ const NewCourseForm = () => {
     >
       <Form>
         <div>
-          <label htmlFor="name">Name:</label>
-          <Field type="text" id="name" name="name" />
-          <ErrorMessage name="name" component="div" />
+          <label htmlFor="name">
+            Name:
+            <Field type="text" id="name" name="name" aria-describedby="name-error" />
+          </label>
+          <ErrorMessage name="name" component="div" id="name-error" />
         </div>
 
-        {/* Repite este patrón para otros campos del formulario */}
         <div>
           <label htmlFor="start_date">Start Date:</label>
           <Field type="date" id="start_date" name="start_date" />
