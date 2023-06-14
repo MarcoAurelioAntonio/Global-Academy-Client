@@ -3,7 +3,7 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
-import { getAllReservationsApi } from '../redux/displayreservationsSlice';
+import { getAllReservationsApi } from '../redux/reservationsSlice';
 
 const DisplayReservations = () => {
   const apiError = useSelector((state) => state.displayreservations.error);
