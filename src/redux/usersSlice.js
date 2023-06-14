@@ -7,27 +7,27 @@ export const postUserToAPI = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/api/v1/users',
-        data,
+        data
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
-  },
+  }
 );
 
 export const getUserFromAPI = createAsyncThunk(
   'users/getUserFromAPI',
   async (username, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `http://localhost:3000/api/v1/users/${username}`,
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/users/${username}`
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
-  },
+  }
 );
 
 const usersSlice = createSlice({
@@ -52,6 +52,21 @@ const usersSlice = createSlice({
         error: null,
       }))
       .addCase(postUserToAPI.rejected, (state, action) => ({
+        ...state,
+        error: action.payload,
+        status: 'failed',
+      }))
+      .addCase(getUserFromAPI.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getUserFromAPI.fulfilled, (state, { payload }) => ({
+        ...state,
+        current_user: payload,
+        status: 'succeed',
+        error: null,
+      }))
+      .addCase(getUserFromAPI.rejected, (state, action) => ({
         ...state,
         error: action.payload,
         status: 'failed',

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { postUserToAPI } from '../redux/usersSlice';
+import { getUserFromAPI, postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
@@ -15,9 +15,9 @@ const Login = () => {
       [ev.target.name]: ev.target.value,
     }));
   };
-  const handleClick = (ev) => {
+  const handleLoginClick = (ev) => {
     ev.preventDefault();
-    dispatch(postUserToAPI(inputs));
+    dispatch(getUserFromAPI(inputs.name));
   };
 
   const handleRegisterClick = (ev) => {
@@ -31,14 +31,17 @@ const Login = () => {
   }
 
   return (
-    <section className="content">
-      <form onSubmit={handleClick}>
-        <div className="imgcontainer">LOGO HERE</div>
+    <section className="content-login">
+      <form onSubmit={handleLoginClick}>
+        <div className="imgcontainer">
+          <img className="avatar" src="/images/logo.png" alt="Logo" />
+        </div>
 
         <div className="container">
           <label htmlFor="name">
             Username
             <input
+              className="field"
               type="text"
               placeholder="Enter Username"
               value={inputs.title}
@@ -50,8 +53,14 @@ const Login = () => {
             />
           </label>
           <br />
-          <button type="submit">Login</button>
-          <button type="button" onClick={handleRegisterClick}>
+          <button className="lg-btn" type="submit">
+            Login
+          </button>
+          <button
+            className="reg-btn"
+            type="button"
+            onClick={handleRegisterClick}
+          >
             Register
           </button>
         </div>
