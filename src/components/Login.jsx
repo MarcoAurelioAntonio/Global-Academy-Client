@@ -22,7 +22,7 @@ const Login = () => {
 
   // Redirect if user successfully logged in
   if (status === 'succeed') {
-    setTimeout(() => history('/add-reservation'));
+    setTimeout(() => history('/'));
   }
 
   return (

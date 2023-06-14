@@ -31,7 +31,7 @@ const coursesSlice = createSlice({
       .addCase(getAllCoursesApi.fulfilled, (state, { payload }) => ({
         ...state,
         courses: payload.data,
-        status: 'succeed',
+        status: 'succeeded',
       }))
       .addCase(getAllCoursesApi.rejected, (state, { error }) => ({
         ...state,
