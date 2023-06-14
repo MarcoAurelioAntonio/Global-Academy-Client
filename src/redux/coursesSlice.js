@@ -20,6 +20,8 @@ export const postApiCourseForm = createAsyncThunk(
     const postFormToData = await axios.post('http://localhost:3000/api/v1/courses', requestForm);
     // console.log(postFormToData.data);
     return postFormToData.data;
+  },
+);
 
 export const getCourseById = createAsyncThunk(
   'courses/getCourseById',
