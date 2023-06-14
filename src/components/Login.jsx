@@ -5,8 +5,7 @@ import { postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
-  const status = useSelector((store) => store.users.status);
-
+  const { status, error } = useSelector((store) => store.users);
   const dispatch = useDispatch();
   const history = useNavigate();
 
@@ -50,10 +49,7 @@ const Login = () => {
         </div>
         <div className="container">
           <ul>
-            <li>
-              {status === 'failed'
-                && 'Username already taken,please try another one.'}
-            </li>
+            <li>{error && `Username ${error}`}</li>
           </ul>
         </div>
       </form>

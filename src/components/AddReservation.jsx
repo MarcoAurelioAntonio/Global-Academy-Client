@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { postReservationToAPI } from '../redux/reservationsSlice';
+import { getAllCoursesApi } from '../redux/coursesSlice';
 
 const AddReservation = () => {
   const [course, setCourse] = useState(null);
-  const status = useSelector((store) => store.reservations.status);
+  const { status, error } = useSelector((store) => store.reservations);
   const user = useSelector((store) => store.users.current_user);
+  const courses = useSelector((store) => store.courses.courses);
   const dispatch = useDispatch();
+
+  // Load the Courses
+  useEffect(() => {
+    if (courses.length > 0) return;
+    if (status === 'failed') return;
+    dispatch(getAllCoursesApi());
+  }, [courses.length, dispatch, status]);
 
   const handleChange = (ev) => {
     setCourse(ev.target.value);
@@ -46,9 +55,12 @@ const AddReservation = () => {
               onChange={handleChange}
               required
             >
-              <option value="1">Course 1</option>
-              <option value="2">Course 2</option>
-              <option value="3">Course 3</option>
+              <option value="">Select your course</option>
+              {courses.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
             </select>
           </label>
           <br />
@@ -57,8 +69,9 @@ const AddReservation = () => {
         <div className="container">
           <ul>
             <li>
-              {status === 'failed' && 'Something went wrong.Please retry' }
-              {status === 'success' && 'You have been enrolled successfully. Enjoy learning!'}
+              {error}
+              {status === 'succeed'
+                && 'You have been enrolled successfully. Enjoy learning!'}
             </li>
           </ul>
         </div>

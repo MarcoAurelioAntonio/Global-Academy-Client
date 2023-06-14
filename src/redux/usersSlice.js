@@ -11,7 +11,7 @@ export const postUserToAPI = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
   },
 );
@@ -37,9 +37,9 @@ const usersSlice = createSlice({
         status: 'succeed',
         error: null,
       }))
-      .addCase(postUserToAPI.rejected, (state, { error }) => ({
+      .addCase(postUserToAPI.rejected, (state, action) => ({
         ...state,
-        error: error.message,
+        error: action.payload,
         status: 'failed',
       }));
   },

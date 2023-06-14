@@ -11,7 +11,7 @@ export const postReservationToAPI = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.response.data.error);
     }
   },
 );
@@ -24,21 +24,21 @@ const reservationsSlice = createSlice({
     message: '',
     error: null,
   },
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(postReservationToAPI.pending, (state) => ({
-        ...state, status: 'loading',
+        ...state,
+        status: 'loading',
       }))
       .addCase(postReservationToAPI.fulfilled, (state, { payload }) => ({
         ...state,
         status: 'succeed',
         message: payload.data,
       }))
-      .addCase(postReservationToAPI.rejected, (state, { error }) => ({
+      .addCase(postReservationToAPI.rejected, (state, action) => ({
         ...state,
-        error: error.message,
+        error: action.payload,
         status: 'failed',
       }));
   },
