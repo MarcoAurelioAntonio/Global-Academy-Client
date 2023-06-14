@@ -14,10 +14,27 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
   })
 ));
 
+export const getCourseById = createAsyncThunk(
+  'courses/getCourseById',
+  async (id) => {
+    const response = await axios.get(`http://localhost:3000/api/v1/courses/${id}`);
+    return response.data;
+  },
+);
+
+export const deleteCourseById = createAsyncThunk(
+  'courses/deleteCourseById',
+  async (id) => {
+    const response = await axios.delete(`http://localhost:3000/api/v1/courses/${id}`);
+    return response.data;
+  },
+);
+
 const coursesSlice = createSlice({
   name: 'courses',
   initialState: {
     courses: [],
+    course: {},
     status: 'idle',
     loading: false,
     error: null,
@@ -38,7 +55,22 @@ const coursesSlice = createSlice({
         ...state,
         error: error.message,
         status: 'failed',
+      }))
+      .addCase(getCourseById.pending, (state) => ({
+        ...state, status: 'loading', course: {},
+      }))
+      .addCase(getCourseById.fulfilled, (state, { payload }) => ({
+        ...state, loading: false, course: payload, status: 'succeed',
+      }))
+      .addCase(getCourseById.rejected, (state, { error }) => ({
+        ...state,
+        error: error.message,
+        status: 'failed',
+      }))
+      .addCase(deleteCourseById.pending, (state) => ({
+        ...state, status: 'loading'
       }));
+
   },
 });
 
