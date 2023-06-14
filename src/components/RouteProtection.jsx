@@ -4,7 +4,7 @@ import { Navigate } from 'react-router';
 import PropTypes from 'prop-types';
 
 const RouteProtection = ({ children }) => {
-  const currentUserId = useSelector((store) => store.users.current_user_id);
+  const currentUserId = useSelector((store) => store.users.current_user?.id);
   if (currentUserId) return children;
   return <Navigate to="/login" />;
 };

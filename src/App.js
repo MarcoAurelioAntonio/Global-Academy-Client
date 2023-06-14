@@ -6,6 +6,7 @@ import Courses from './components/Courses';
 import Reservations from './components/Reservations';
 import Login from './components/Login';
 import RouteProtection from './components/RouteProtection';
+import AddReservation from './components/AddReservation';
 
 const router = createBrowserRouter([
   {
@@ -17,11 +18,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses',
-        element: <RouteProtection><Courses /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <Courses />
+          </RouteProtection>
+        ),
       },
       {
         path: '/reservations',
-        element: <RouteProtection><Reservations /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <Reservations />
+          </RouteProtection>
+        ),
+      },
+      {
+        path: '/add-reservation',
+        element: (
+          <RouteProtection>
+            <AddReservation />
+          </RouteProtection>
+        ),
       },
     ],
   },

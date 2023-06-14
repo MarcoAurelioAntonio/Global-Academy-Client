@@ -19,7 +19,7 @@ export const postUserToAPI = createAsyncThunk(
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
-    current_user_id: null,
+    current_user: null,
     status: 'idle',
     loading: false,
     error: null,
@@ -33,7 +33,7 @@ const usersSlice = createSlice({
       }))
       .addCase(postUserToAPI.fulfilled, (state, { payload }) => ({
         ...state,
-        current_user_id: payload.id,
+        current_user: payload,
         status: 'succeed',
         error: null,
       }))

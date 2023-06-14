@@ -5,7 +5,6 @@ import { postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
-  // const [errorMessage, seterrorMessage] = useState('');
   const status = useSelector((store) => store.users.status);
 
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const Login = () => {
 
   // Redirect if user successfully logged in
   if (status === 'succeed') {
-    setTimeout(() => history('/reservations'));
+    setTimeout(() => history('/add-reservation'));
   }
 
   return (
@@ -46,6 +45,7 @@ const Login = () => {
               minLength={3}
             />
           </label>
+          <br />
           <button type="submit">Login</button>
         </div>
         <div className="container">
