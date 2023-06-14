@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export const getAllReservationsApi = createAsyncThunk(
   'api/getAllReservationsApi',
-  async () => {
-    const response = await axios.get('http://localhost:3000/api/v1/users/3/reservations');
+  async (userId) => {
+    const response = await axios.get(`http://localhost:3000/api/v1/users/${userId}/reservations`);
     // console.log(response.data);
     return response.data;
   },
@@ -16,9 +16,14 @@ const displayreservationsSlice = createSlice({
     data: [],
     status: null,
     error: null,
+    userId: null,
   },
 
-  reducers: {},
+  reducers: {
+    setUserId: (state, action) => {
+      state.userId = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder

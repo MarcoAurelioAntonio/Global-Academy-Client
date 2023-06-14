@@ -6,14 +6,16 @@ import {
 import { getAllReservationsApi } from '../redux/displayreservationsSlice';
 
 const DisplayReservations = () => {
+  const apiError = useSelector((state) => state.displayreservations.error);
   const dispatch = useDispatch();
   const apiData = useSelector((state) => state.displayreservations.data);
   const apiStatus = useSelector((state) => state.displayreservations.status);
-  const apiError = useSelector((state) => state.displayreservations.error);
+
+  const userId = 2; // HARDCODED FOR NOW
 
   useEffect(() => {
-    dispatch(getAllReservationsApi());
-  }, [dispatch]);
+    dispatch(getAllReservationsApi(userId));
+  }, [dispatch, userId]);
 
   return (
     <div style={{
