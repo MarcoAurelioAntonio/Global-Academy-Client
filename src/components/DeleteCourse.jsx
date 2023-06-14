@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllCoursesApi, deleteCourseById } from "../redux/coursesSlice";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCoursesApi, deleteCourseById } from '../redux/coursesSlice';
+
 const DeleteCourse = () => {
   const dispath = useDispatch();
   const { loading, courses, deleted } = useSelector((state) => state.courses);

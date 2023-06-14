@@ -26,7 +26,7 @@ export const deleteCourseById = createAsyncThunk(
   async (id) => {
     const response = await axios.delete(`http://localhost:3000/api/v1/courses/${id}`);
     const payload = { id, response };
-    return payload
+    return payload;
   },
 );
 
@@ -71,7 +71,7 @@ const coursesSlice = createSlice({
         status: 'failed',
       }))
       .addCase(deleteCourseById.pending, (state) => ({
-        ...state
+        ...state,
       }))
       .addCase(deleteCourseById.fulfilled, (state, { payload }) => {
         const { id } = payload;
@@ -79,8 +79,7 @@ const coursesSlice = createSlice({
         return {
           ...state, loading: false, courses: newCourses, deleted: true,
         };
-      }
-      )
+      })
       .addCase(deleteCourseById.rejected, (state, { error }) => ({
         ...state, status: 'failed', error: error.message,
       }));
