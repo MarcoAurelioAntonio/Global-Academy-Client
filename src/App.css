@@ -42,9 +42,11 @@
   height: 100vh;
 }
 
+/* Home-Styles Desktop */
+
 .home-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -124,7 +126,19 @@
   align-items: center;
 }
 
+/* Nav-Style */
+
+.nav-menu {
+  width: 200px;
+  background: #37cd21;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 640px) {
+  /* Home style Mobile */
   .home-wrapper {
     overflow-y: scroll;
     height: auto;
