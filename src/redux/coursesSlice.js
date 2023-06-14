@@ -15,10 +15,11 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
 ));
 
 export const postApiCourseForm = createAsyncThunk(
-  'api/postApiCourseForm',
+  'courses/postApiCourseForm',
   async (requestForm) => {
-    const postForm = await axios.post('http://localhost:3000/api/v1/courses', requestForm);
-    return postForm;
+    const postFormToData = await axios.post('http://localhost:3000/api/v1/courses', requestForm);
+    // console.log(postFormToData.data);
+    return postFormToData.data;
   },
 );
 

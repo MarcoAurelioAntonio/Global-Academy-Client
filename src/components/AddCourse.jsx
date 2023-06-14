@@ -6,43 +6,43 @@ import {
   Field,
   ErrorMessage,
 } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import { postApiCourseForm } from '../redux/coursesSlice';
 
-const NewCourseForm = () => {
+const AddCourse = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    dispatch(postApiCourseForm(values))
-      .then((response) => {
-        console.log(response.payload);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setSubmitting(false);
-      });
+  const history = useNavigate();
+
+  const handleSubmit = (requestForm) => {
+    dispatch(postApiCourseForm(requestForm));
+    setTimeout(() => history('/'));
   };
 
   const validateForm = (values) => {
     const errors = {};
-    if (!values.name) {
-      errors.name = 'Name is required';
+    if (!values.name || values.name.length < 3) {
+      errors.name = 'Name is required ir must be at least 3 characters long';
     }
-    if (!values.start_date) {
-      errors.start_date = 'Start date is required';
+
+    const startDate = new Date(values.start_date);
+    if (!startDate || startDate < new Date()) {
+      errors.start_date = 'Start date is required or must be greater than today';
     }
-    if (!values.end_date) {
-      errors.end_date = 'End date is required';
+
+    const startDate2 = new Date(values.start_date);
+    const endDate = new Date(values.end_date);
+    if (!endDate || endDate < startDate2) {
+      errors.end_date = 'End date is required or must be greater than start date';
     }
-    if (!values.description) {
-      errors.description = 'Description is required';
+    if (!values.description || values.description.length < 30) {
+      errors.description = 'Description is required or must be at least 30 characters long';
     }
-    if (!values.course_type) {
-      errors.course_type = 'Course type is required';
+    if (!values.course_type || values.course_type.length < 3) {
+      errors.course_type = 'Course type is required or must be at least 3 characters long';
     }
-    if (!values.price) {
-      errors.price = 'Price is required';
+    if (!values.price || values.price < 0) {
+      errors.price = 'Price is required or must be $00,0.- or a positive number';
     }
 
     return errors;
@@ -59,9 +59,9 @@ const NewCourseForm = () => {
 
   return (
     <Formik
-      initialValues={initialValues}
       onSubmit={handleSubmit}
       validate={validateForm}
+      initialValues={initialValues}
     >
       <Form>
         <div>
@@ -108,4 +108,4 @@ const NewCourseForm = () => {
   );
 };
 
-export default NewCourseForm;
+export default AddCourse;
