@@ -11,7 +11,7 @@ export const postUserToAPI = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
   },
 );
@@ -19,7 +19,7 @@ export const postUserToAPI = createAsyncThunk(
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
-    current_user_id: null,
+    current_user: null,
     status: 'idle',
     loading: false,
     error: null,
@@ -33,13 +33,13 @@ const usersSlice = createSlice({
       }))
       .addCase(postUserToAPI.fulfilled, (state, { payload }) => ({
         ...state,
-        current_user_id: payload.id,
+        current_user: payload,
         status: 'succeed',
         error: null,
       }))
-      .addCase(postUserToAPI.rejected, (state, { error }) => ({
+      .addCase(postUserToAPI.rejected, (state, action) => ({
         ...state,
-        error: error.message,
+        error: action.payload,
         status: 'failed',
       }));
   },

@@ -8,10 +8,10 @@ import { getAllReservationsApi } from '../redux/reservationsSlice';
 const DisplayReservations = () => {
   const apiError = useSelector((state) => state.reservations.error);
   const dispatch = useDispatch();
-  const apiData = useSelector((state) => state.reservations.data);
+  const apiData = useSelector((state) => state.reservations.reservations);
   const apiStatus = useSelector((state) => state.reservations.status);
 
-  const userId = 2; // HARDCODED FOR NOW
+  const userId = 37; // HARDCODED FOR NOW
 
   useEffect(() => {
     dispatch(getAllReservationsApi(userId));

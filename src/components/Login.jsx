@@ -5,9 +5,7 @@ import { postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
-  // const [errorMessage, seterrorMessage] = useState('');
-  const status = useSelector((store) => store.users.status);
-
+  const { status, error } = useSelector((store) => store.users);
   const dispatch = useDispatch();
   const history = useNavigate();
 
@@ -20,10 +18,12 @@ const Login = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
-    if (status === 'succeed') {
-      history('/reservations');
-    }
   };
+
+  // Redirect if user successfully logged in
+  if (status === 'succeed') {
+    setTimeout(() => history('/add-reservation'));
+  }
 
   return (
     <section className="content">
@@ -44,11 +44,12 @@ const Login = () => {
               minLength={3}
             />
           </label>
+          <br />
           <button type="submit">Login</button>
         </div>
         <div className="container">
           <ul>
-            <li>{ status === 'failed' && 'Username already taken,please try another one.' }</li>
+            <li>{error && `Username ${error}`}</li>
           </ul>
         </div>
       </form>

@@ -7,6 +7,7 @@ import Reservations from './components/Reservations';
 import DisplayReservations from './components/DisplayReservations';
 import Login from './components/Login';
 import RouteProtection from './components/RouteProtection';
+import AddReservation from './components/AddReservation';
 
 const router = createBrowserRouter([
   {
@@ -18,15 +19,31 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses',
-        element: <RouteProtection><Courses /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <Courses />
+          </RouteProtection>
+        ),
       },
       {
         path: '/reservations',
-        element: <RouteProtection><Reservations /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <Reservations />
+          </RouteProtection>
+        ),
+      },
+      {
+        path: '/add-reservation',
+        element: (
+          <RouteProtection>
+            <AddReservation />
+          </RouteProtection>
+        ),
       },
       {
         path: '/all_user_reservations',
-        element: <DisplayReservations />,
+        element: <RouteProtection><DisplayReservations /></RouteProtection>,
       },
     ],
   },
