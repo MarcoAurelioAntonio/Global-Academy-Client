@@ -20,10 +20,12 @@ const Login = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
-    if (status === 'succeed') {
-      history('/reservations');
-    }
   };
+
+  // Redirect if user successfully logged in
+  if (status === 'succeed') {
+    setTimeout(() => history('/reservations'));
+  }
 
   return (
     <section className="content">
@@ -48,7 +50,10 @@ const Login = () => {
         </div>
         <div className="container">
           <ul>
-            <li>{ status === 'failed' && 'Username already taken,please try another one.' }</li>
+            <li>
+              {status === 'failed'
+                && 'Username already taken,please try another one.'}
+            </li>
           </ul>
         </div>
       </form>
