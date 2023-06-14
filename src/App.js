@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/all_user_reservations',
-        element: <DisplayReservations />,
+        element: <RouteProtection><DisplayReservations /></RouteProtection>,
       },
     ],
   },
