@@ -10,7 +10,7 @@ export const getAllReservationsApi = createAsyncThunk(
   },
 );
 
-const displayreservationsSlice = createSlice({
+const reservationsSlice = createSlice({
   name: 'api',
   initialState: {
     data: [],
@@ -29,4 +29,4 @@ const displayreservationsSlice = createSlice({
   },
 });
 
-export default displayreservationsSlice.reducer;
+export default reservationsSlice.reducer;
