@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCourseById } from "../redux/coursesSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Course = () => {
+const CourseDetails = () => {
   const { id } = useParams();
   const { course } = useSelector((state) => state.courses);
   const dispatch = useDispatch();
@@ -53,4 +53,4 @@ const Course = () => {
   );
 };
 
-export default Course;
+export default CourseDetails;

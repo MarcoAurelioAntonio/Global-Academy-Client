@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Courses from './components/Courses';
-import Course from './components/Course';
+import CourseDetails from './components/CourseDetails';
 import Reservations from './components/Reservations';
 
 const router = createBrowserRouter([
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <Course />,
+        element: <CourseDetails />,
       },
       {
         path: '/reservations',
