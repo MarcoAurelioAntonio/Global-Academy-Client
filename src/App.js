@@ -9,6 +9,7 @@ import Login from './components/Login';
 import RouteProtection from './components/RouteProtection';
 import AddReservation from './components/AddReservation';
 import Home from './components/Home';
+import DeleteCourse from './components/DeleteCourse';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: '/all_user_reservations',
         element: <RouteProtection><DisplayReservations /></RouteProtection>,
       },
+      {
+        path: '/delete_course',
+        element: <DeleteCourse /> 
+      }
     ],
   },
 ]);
