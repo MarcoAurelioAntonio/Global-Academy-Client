@@ -39,7 +39,6 @@ const Login = () => {
 
         <div className="container">
           <label htmlFor="name">
-            Username
             <input
               className="field"
               type="text"
@@ -52,7 +51,9 @@ const Login = () => {
               minLength={3}
             />
           </label>
-          <br />
+          <section className="msg-section">
+            <p className="error">{error && `Username ${error}`}</p>
+          </section>
           <button className="lg-btn" type="submit">
             Login
           </button>
@@ -63,11 +64,6 @@ const Login = () => {
           >
             Register
           </button>
-        </div>
-        <div className="container">
-          <ul>
-            <li>{error && `Username ${error}`}</li>
-          </ul>
         </div>
       </form>
     </section>

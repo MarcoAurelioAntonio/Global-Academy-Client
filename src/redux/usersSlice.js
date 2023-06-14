@@ -7,13 +7,13 @@ export const postUserToAPI = createAsyncThunk(
     try {
       const response = await axios.post(
         'http://localhost:3000/api/v1/users',
-        data
+        data,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
-  }
+  },
 );
 
 export const getUserFromAPI = createAsyncThunk(
@@ -21,13 +21,13 @@ export const getUserFromAPI = createAsyncThunk(
   async (username, thunkAPI) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/${username}`
+        `http://localhost:3000/api/v1/users/${username}`,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.name[0]);
     }
-  }
+  },
 );
 
 const usersSlice = createSlice({
