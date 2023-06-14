@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import Courses from './components/Courses';
 import Reservations from './components/Reservations';
+import DisplayReservations from './components/DisplayReservations';
 import Login from './components/Login';
 import RouteProtection from './components/RouteProtection';
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/reservations',
         element: <RouteProtection><Reservations /></RouteProtection>,
+      },
+      {
+        path: '/all_user_reservations',
+        element: <DisplayReservations />,
       },
     ],
   },
