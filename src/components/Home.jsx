@@ -11,7 +11,7 @@ const Home = () => {
     if (courses.length > 0) return;
     if (status === 'failed') return;
     dispatch(getAllCoursesApi());
-  }, [dispatch]);
+  }, [dispatch, courses.length, status]);
 
   if (status !== 'succeeded') {
     return (

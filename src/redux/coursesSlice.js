@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getAllCoursesApi = createAsyncThunk('courses/fetch', () => (
+export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
   new Promise((resolve, reject) => {
     axios.get('http://localhost:3000/api/v1/courses')
       .then(({ data }) => {
+        // console.log(data);
         resolve({ data });
       })
       .catch((error) => {
@@ -12,6 +13,15 @@ export const getAllCoursesApi = createAsyncThunk('courses/fetch', () => (
       });
   })
 ));
+
+export const postApiCourseForm = createAsyncThunk(
+  'courses/postApiCourseForm',
+  async (requestForm) => {
+    const postFormToData = await axios.post('http://localhost:3000/api/v1/courses', requestForm);
+    // console.log(postFormToData.data);
+    return postFormToData.data;
+  },
+);
 
 export const getCourseById = createAsyncThunk(
   'courses/getCourseById',
@@ -44,6 +54,7 @@ const coursesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // getAllCoursesApi
       .addCase(getAllCoursesApi.pending, (state) => ({
         ...state, status: 'loading', loading: true, courses: [],
       }))
@@ -54,6 +65,21 @@ const coursesSlice = createSlice({
         loading: false,
       }))
       .addCase(getAllCoursesApi.rejected, (state, { error }) => ({
+        ...state,
+        error: error.message,
+        status: 'failed',
+      }))
+
+      // postApiCourseForm
+      .addCase(postApiCourseForm.pending, (state) => ({
+        ...state, status: 'loading', courses: [],
+      }))
+      .addCase(postApiCourseForm.fulfilled, (state, { payload }) => ({
+        ...state,
+        courses: payload.array,
+        status: 'succeed',
+      }))
+      .addCase(postApiCourseForm.rejected, (state, { error }) => ({
         ...state,
         error: error.message,
         status: 'failed',
