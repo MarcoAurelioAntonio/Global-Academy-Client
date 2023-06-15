@@ -1,3 +1,12 @@
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+}
+
 .App {
   text-align: center;
 }
@@ -155,4 +164,9 @@
     width: 0;
     height: 0;
   }
+}
+
+.course-image {
+  width: 70%;
+  height: 60%;
 }
