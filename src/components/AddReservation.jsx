@@ -38,13 +38,23 @@ const AddReservation = () => {
   }
 
   return (
-    <section className="content">
-      <h1>Enrollment</h1>
-      <form onSubmit={handleClick}>
-        <div className="add-reservation-container">
+    <section className="enrollment-content">
+      <div className="enrollment-title">
+        Are you ready to unlock your full potential?
+      </div>
+      <p className="enrollment-text">
+        By investing in your education, you open doors to new knowledge, skills,
+        and opportunities. Embrace the chance to broaden your horizons, gain
+        expertise, and boost your career prospects. Remember, learning is a
+        lifelong journey, and each course you undertake is a valuable milestone
+        along the way. Take that leap of faith and embark on an exciting
+        educational adventure today!
+      </p>
+      <div className="enroll-container">
+        <form onSubmit={handleClick}>
           <label htmlFor="name">
-            Username
             <input
+              className="enroll-field"
               type="text"
               placeholder="Enter Username"
               value={user.name}
@@ -54,9 +64,9 @@ const AddReservation = () => {
           </label>
           <br />
           <label htmlFor="Course">
-            Course
-            { courseSelected ? (
+            {courseSelected ? (
               <input
+                className="enroll-field"
                 type="text"
                 value={courseSelected.name}
                 name="name"
@@ -64,8 +74,8 @@ const AddReservation = () => {
               />
             ) : (
               <select
+                className="enroll-field"
                 name="course"
-                className="inputField"
                 onChange={handleChange}
                 required
               >
@@ -77,21 +87,24 @@ const AddReservation = () => {
                 ))}
               </select>
             )}
-
           </label>
           <br />
-          <button type="submit">Enroll</button>
-        </div>
-        <div className="container">
-          <ul>
-            <li>
-              {error}
-              {status === 'succeed'
-                && 'You have been enrolled successfully. Enjoy learning!'}
-            </li>
-          </ul>
-        </div>
-      </form>
+          <button
+            className="enroll-btn"
+            type="submit"
+            disabled={status === 'loading' && true}
+          >
+            ENROLL NOW
+          </button>
+        </form>
+        <section className="msg-section">
+          <p className="error">{error}</p>
+          <p className="success">
+            {status === 'succeed'
+              && 'You have been enrolled successfully. Enjoy learning!'}
+          </p>
+        </section>
+      </div>
     </section>
   );
 };

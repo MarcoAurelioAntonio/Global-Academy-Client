@@ -4,7 +4,9 @@ import axios from 'axios';
 export const getAllReservationsApi = createAsyncThunk(
   'api/getAllReservationsApi',
   async (userId) => {
-    const response = await axios.get(`http://localhost:3000/api/v1/users/${userId}/reservations`);
+    const response = await axios.get(
+      `http://localhost:3000/api/v1/users/${userId}/reservations`,
+    );
     return response.data;
   },
 );
@@ -29,7 +31,6 @@ const reservationsSlice = createSlice({
     reservations: [],
     status: 'idle',
     loading: false,
-    message: '',
     error: null,
     userId: null,
   },
@@ -43,6 +44,7 @@ const reservationsSlice = createSlice({
       .addCase(postReservationToAPI.fulfilled, (state, { payload }) => ({
         ...state,
         status: 'succeed',
+        error: null,
         message: payload.data,
       }))
       .addCase(postReservationToAPI.rejected, (state, action) => ({
@@ -50,9 +52,20 @@ const reservationsSlice = createSlice({
         error: action.payload,
         status: 'failed',
       }))
-      .addCase(getAllReservationsApi.pending, (state) => ({ ...state, status: 'loading' }))
-      .addCase(getAllReservationsApi.fulfilled, (state, action) => ({ ...state, status: 'succeeded', reservations: action.payload }))
-      .addCase(getAllReservationsApi.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));
+      .addCase(getAllReservationsApi.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getAllReservationsApi.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        reservations: action.payload,
+      }))
+      .addCase(getAllReservationsApi.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
   },
 });
 

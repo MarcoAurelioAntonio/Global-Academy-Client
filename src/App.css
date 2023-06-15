@@ -138,7 +138,7 @@
   justify-content: center;
 }
 
-/* Login  */
+/* ==================== Login starts ======================= */
 .content-login {
   height: 100vh;
   display: flex;
@@ -180,6 +180,11 @@ button:hover {
   opacity: 0.8;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
@@ -197,7 +202,6 @@ img.avatar {
   border-radius: 50%;
 }
 
-/* Add padding to containers */
 .msg-section {
   padding: 2px;
   text-align: center;
@@ -205,8 +209,77 @@ img.avatar {
 
 .msg-section .error {
   color: #f44336;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
+
+.msg-section .success {
+  color: rgb(11, 11, 78);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* ==================== Login ends ======================= */
+
+/* ==================== Enrollment starts ======================= */
+
+.enrollment-content {
+  background-color: #4ea141;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.enrollment-title {
+  width: 40%;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 5px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-bottom: solid 1px white;
+}
+
+.enrollment-text {
+  width: 55%;
+  color: white;
+  font-size: 1rem;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.enroll-field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+}
+
+.enroll-container option {
+  background-color: #4ea141;
+}
+
+.enroll-btn {
+  background-color: white;
+  color: green;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ==================== Enrollment ends ======================= */
 
 @media screen and (max-width: 640px) {
   /* Home style Mobile */
@@ -230,5 +303,18 @@ img.avatar {
   /* Login Mobile */
   .content-login {
     padding: 1rem;
+  }
+
+  /* Enrollment */
+  .enrollment-content {
+    padding: 1rem;
+  }
+
+  .enrollment-title {
+    width: 100%;
+  }
+
+  .enrollment-text {
+    width: 100%;
   }
 }

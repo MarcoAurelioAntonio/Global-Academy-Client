@@ -54,13 +54,14 @@ const Login = () => {
           <section className="msg-section">
             <p className="error">{error && `Username ${error}`}</p>
           </section>
-          <button className="lg-btn" type="submit">
+          <button className="lg-btn" type="submit" disabled={status === 'loading' && true}>
             Login
           </button>
           <button
             className="reg-btn"
             type="button"
             onClick={handleRegisterClick}
+            disabled={status === 'loading' && true}
           >
             Register
           </button>
