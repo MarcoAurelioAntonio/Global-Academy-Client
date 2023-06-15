@@ -1,0 +1,105 @@
+.add-course-form-container {
+  width: 100vw;
+  height: auto;
+  background-color: #f2f2f2;
+  font-family: 'Poppins', sans-serif;
+}
+
+.add-course-form-title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.add-course-form {
+  width: 65vw;
+  height: auto;
+  margin: 0 auto 20px auto;
+  padding: 2em;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile version */
+@media (max-width: 600px) {
+  .add-course-form {
+    width: 95vw;
+  }
+
+  .add-course-form-title {
+    font-size: 1.5em;
+  }
+}
+
+.form-field {
+  margin-bottom: 1em;
+}
+
+.form-label {
+  font-size: 1em;
+  display: block;
+  margin-bottom: 0.5em;
+  position: relative;
+}
+
+.form-label-required {
+  color: #f00;
+  margin-left: 5px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.3em;
+  padding-left: 0.7em;
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  caret-color: #007bff;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+}
+
+.form-input[type="date"]::placeholder {
+  color: gray;
+}
+
+.form-error {
+  height: 1em;
+  color: #f65;
+  font-size: 0.7em;
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+.form-submit-button {
+  margin-top: 15px;
+  width: 50%;
+  background-color: #39f;
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.form-submit-button:hover {
+  background-color: #007bff;
+}
+
+.form-submit-button:disabled {
+  background-color: #39f;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-submit-button:active {
+  background-color: #007bff;
+}

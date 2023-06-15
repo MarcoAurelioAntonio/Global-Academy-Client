@@ -8,6 +8,7 @@ import {
 } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { postApiCourseForm } from '../redux/coursesSlice';
+import './addCourse.css';
 
 const AddCourse = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ const AddCourse = () => {
   const formError = useSelector((store) => store.courses.error);
   const formStatus = useSelector((store) => store.courses.status);
 
+  if (formStatus === 'succeed') {
+    setTimeout(() => history('true'), 2000);
+  }
   const handleSubmit = (requestForm) => {
     dispatch(postApiCourseForm(requestForm));
-    if (formStatus === 'succeed') {
-      setTimeout(() => history('/'));
-    }
   };
 
   const validateForm = (values) => {
@@ -61,56 +62,104 @@ const AddCourse = () => {
   };
 
   return (
-    <>
+    <div className="add-course-form-container">
+      <h2 className="add-course-form-title">Add Your Course Here</h2>
       <Formik
         onSubmit={handleSubmit}
         validate={validateForm}
         initialValues={initialValues}
       >
-        <Form>
-          <div>
-            <label htmlFor="name">
+        <Form className="add-course-form">
+          <div className="form-field">
+            <label htmlFor="name" className="form-label">
               Name:
-              <Field type="text" id="name" name="name" aria-describedby="name-error" />
+              <span className="form-label-required">*</span>
+              <Field
+                type="text"
+                id="name"
+                name="name"
+                aria-describedby="name-error"
+                className="form-input"
+              />
             </label>
-            <ErrorMessage name="name" component="div" id="name-error" />
+            <ErrorMessage name="name" component="div" id="name-error" className="form-error" />
           </div>
 
-          <div>
-            <label htmlFor="start_date">Start Date:</label>
-            <Field type="date" id="start_date" name="start_date" />
-            <ErrorMessage name="start_date" component="div" />
+          <div className="form-field">
+            <label htmlFor="start_date" className="form-label">
+              Start Date:
+              <span className="form-label-required">*</span>
+            </label>
+            <Field
+              type="date"
+              id="start_date"
+              name="start_date"
+              className="form-input"
+            />
+            <ErrorMessage name="start_date" component="div" className="form-error" />
           </div>
 
-          <div>
-            <label htmlFor="end_date">End Date:</label>
-            <Field type="date" id="end_date" name="end_date" />
-            <ErrorMessage name="end_date" component="div" />
+          <div className="form-field">
+            <label htmlFor="end_date" className="form-label">
+              End Date:
+              <span className="form-label-required">*</span>
+            </label>
+            <Field
+              type="date"
+              id="end_date"
+              name="end_date"
+              className="form-input"
+            />
+            <ErrorMessage name="end_date" component="div" className="form-error" />
           </div>
 
-          <div>
-            <label htmlFor="description">Description:</label>
-            <Field as="textarea" id="description" name="description" />
-            <ErrorMessage name="description" component="div" />
+          <div className="form-field">
+            <label htmlFor="description" className="form-label">
+              Description:
+              <span className="form-label-required">*</span>
+            </label>
+            <Field
+              as="textarea"
+              id="description"
+              name="description"
+              className="form-textarea"
+            />
+            <ErrorMessage name="description" component="div" className="form-error" />
           </div>
 
-          <div>
-            <label htmlFor="course_type">Course Type:</label>
-            <Field type="text" id="course_type" name="course_type" />
-            <ErrorMessage name="course_type" component="div" />
+          <div className="form-field">
+            <label htmlFor="course_type" className="form-label">
+              Course Type:
+              <span className="form-label-required">*</span>
+            </label>
+            <Field
+              type="text"
+              id="course_type"
+              name="course_type"
+              className="form-input"
+            />
+            <ErrorMessage name="course_type" component="div" className="form-error" />
           </div>
 
-          <div>
-            <label htmlFor="price">Price:</label>
-            <Field type="number" id="price" name="price" />
-            <ErrorMessage name="price" component="div" />
+          <div className="form-field">
+            <label htmlFor="price" className="form-label">
+              Price:
+              <span className="form-label-required">*</span>
+            </label>
+            <Field
+              type="number"
+              id="price"
+              name="price"
+              className="form-input"
+            />
+            <ErrorMessage name="price" component="div" className="form-error" />
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className="form-submit-button">Submit</button>
+          {formStatus === 'failed' && <p className="form-error">{formError}</p>}
         </Form>
       </Formik>
-      {formStatus === 'failed' && <p>{formError}</p>}
-    </>
+    </div>
   );
 };
 
