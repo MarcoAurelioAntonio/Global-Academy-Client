@@ -5,10 +5,10 @@ export const getAllReservationsApi = createAsyncThunk(
   'api/getAllReservationsApi',
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:3000/api/v1/users/${userId}/reservations`
+      `http://localhost:3000/api/v1/users/${userId}/reservations`,
     );
     return response.data;
-  }
+  },
 );
 
 export const postReservationToAPI = createAsyncThunk(
@@ -17,13 +17,13 @@ export const postReservationToAPI = createAsyncThunk(
     try {
       const response = await axios.post(
         `http://localhost:3000/api/v1/users/${data.user_id}/reservations`,
-        data
+        data,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.error);
     }
-  }
+  },
 );
 const reservationsSlice = createSlice({
   name: 'api',
@@ -36,17 +36,14 @@ const reservationsSlice = createSlice({
     enrolled: false,
   },
   reducers: {
-    reset: (state) => {
-      console.log('RESET VALUES');
-      return {
-        ...state,
-        status: 'idle',
-        loading: false,
-        error: null,
-        userId: null,
-        enrolled: false,
-      };
-    },
+    reset: (state) => ({
+      ...state,
+      status: 'idle',
+      loading: false,
+      error: null,
+      userId: null,
+      enrolled: false,
+    }),
   },
   extraReducers: (builder) => {
     builder

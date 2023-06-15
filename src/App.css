@@ -224,15 +224,16 @@ img.avatar {
 /* ==================== Enrollment starts ======================= */
 
 .enrollment-content {
-  background-color: #4ea141;
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(1, 77, 20,0.8),rgba(21, 85, 2,0.8)),url("https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=1600")
-          center;
- background-size: cover;
+  background:
+    linear-gradient(rgba(1, 77, 20, 0.8), rgba(21, 85, 2, 0.8)),
+    url("https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=1600")
+    center;
+  background-size: cover;
 }
 
 .enrollment-title {
@@ -269,7 +270,7 @@ img.avatar {
 }
 
 .enroll-container option {
-  background-color: rgba(1, 77, 20,0.8);
+  background-color: rgba(1, 77, 20, 0.8);
 }
 
 .enroll-btn {
