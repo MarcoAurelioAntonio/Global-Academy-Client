@@ -13,7 +13,7 @@ const CourseDetails = () => {
   }, [dispatch, id]);
 
   const hanldeEnroll = () => {
-    console.log('enroll');
+    // console.log('enroll');
   };
 
   return (
