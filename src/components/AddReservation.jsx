@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import { postReservationToAPI } from '../redux/reservationsSlice';
+import { postReservationToAPI, reset } from '../redux/reservationsSlice';
 
 const AddReservation = () => {
-  const [course, setCourse] = useState(null);
-  const { status, error } = useSelector((store) => store.reservations);
-  const user = useSelector((store) => store.users.current_user);
-  const courses = useSelector((store) => store.courses.courses);
-  const dispatch = useDispatch();
   // Retrieve data from other location
   const currentLocation = useLocation();
   const courseSelected = currentLocation.state || null;
+  const [course, setCourse] = useState(courseSelected?.id);
+  const { status, error, enrolled } = useSelector(
+    (store) => store.reservations,
+  );
+  const user = useSelector((store) => store.users.current_user);
+  const courses = useSelector((store) => store.courses.courses);
+  const dispatch = useDispatch();
+  // const history = useNavigate();
+
   const handleChange = (ev) => {
     setCourse(ev.target.value);
   };
   const handleClick = (ev) => {
     ev.preventDefault();
-    if (courseSelected) {
-      setCourse(courseSelected.id);
-    }
+    dispatch(reset());
     const reservation = { user_id: user.id, course_id: course };
     dispatch(postReservationToAPI(reservation));
+    setTimeout(() => dispatch(reset()), 5000);
   };
 
   return (
@@ -87,8 +90,7 @@ const AddReservation = () => {
         <section className="msg-section">
           <p className="error">{error}</p>
           <p className="success">
-            {status === 'succeed' &&
-              'You have been enrolled successfully. Enjoy learning!'}
+            {enrolled && 'You have been enrolled successfully. Enjoy learning!'}
           </p>
         </section>
       </div>

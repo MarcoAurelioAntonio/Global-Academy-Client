@@ -6,7 +6,10 @@ const NavMenu = () => (
       <Link to="/">Courses</Link>
     </div>
     <div className="nav-menu-item">
-      <Link to="/add-reservation">Enrollment</Link>
+      <Link to="/add-reservation">Enroll</Link>
+    </div>
+    <div className="nav-menu-item">
+      <Link to="/all_user_reservations">My Enrollments</Link>
     </div>
   </div>
 );

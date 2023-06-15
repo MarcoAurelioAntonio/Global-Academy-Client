@@ -10,8 +10,8 @@ const DisplayReservations = () => {
   const apiError = useSelector((state) => state.reservations.error);
   const apiData = useSelector((state) => state.reservations.reservations);
   const apiStatus = useSelector((state) => state.reservations.status);
-
-  const userId = 37; // HARDCODED FOR NOW
+  const user = useSelector((store) => store.users.current_user);
+  const userId = user.id; // HARDCODED FOR NOW
 
   useEffect(() => {
     dispatch(getAllReservationsApi(userId));

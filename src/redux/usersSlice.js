@@ -25,7 +25,8 @@ export const getUserFromAPI = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.name[0]);
+      const msg = error.response.data.error
+      return thunkAPI.rejectWithValue(msg);
     }
   },
 );

@@ -52,7 +52,7 @@ const Login = () => {
             />
           </label>
           <section className="msg-section">
-            <p className="error">{error && `Username ${error}`}</p>
+            <p className="error">{error}</p>
           </section>
           <button className="lg-btn" type="submit" disabled={status === 'loading' && true}>
             Login
