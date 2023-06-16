@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllCoursesApi, deleteCourseById } from "../redux/coursesSlice";
-import NavMenu from "./NavMenu";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCoursesApi, deleteCourseById } from '../redux/coursesSlice';
+import NavMenu from './NavMenu';
 
 const DeleteCourse = () => {
   const dispath = useDispatch();
