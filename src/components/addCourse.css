@@ -1,6 +1,6 @@
 .add-course-form-container {
   width: 100vw;
-  height: auto;
+  height: 1000px;
   background-color: #f2f2f2;
   font-family: 'Poppins', sans-serif;
 }
@@ -13,7 +13,10 @@
 }
 
 .add-course-form {
-  width: 65vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  width: 55vw;
   height: auto;
   margin: 0 auto 20px auto;
   padding: 2em;
@@ -22,9 +25,10 @@
 }
 
 /* Mobile version */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .add-course-form {
     width: 95vw;
+    grid-template-columns: 1fr;
   }
 
   .add-course-form-title {
@@ -39,7 +43,6 @@
 .form-label {
   font-size: 1em;
   display: block;
-  margin-bottom: 0.5em;
   position: relative;
 }
 
@@ -80,7 +83,7 @@
 
 .form-submit-button {
   margin-top: 15px;
-  width: 50%;
+  width: 100%;
   background-color: #39f;
   color: #fff;
   padding: 0.5em 1em;
