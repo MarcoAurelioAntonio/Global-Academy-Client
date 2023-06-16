@@ -15,11 +15,11 @@ const AddCourse = () => {
   const formError = useSelector((store) => store.courses.error);
   const formStatus = useSelector((store) => store.courses.status);
 
+  if (formStatus === 'succeed') {
+    setTimeout(() => history('true'));
+  }
   const handleSubmit = (requestForm) => {
     dispatch(postApiCourseForm(requestForm));
-    if (formStatus === 'succeed') {
-      setTimeout(() => history('/'));
-    }
   };
 
   const validateForm = (values) => {
