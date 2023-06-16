@@ -4,7 +4,9 @@ import axios from 'axios';
 export const getAllReservationsApi = createAsyncThunk(
   'api/getAllReservationsApi',
   async (userId) => {
-    const response = await axios.get(`http://localhost:3000/api/v1/users/${userId}/reservations`);
+    const response = await axios.get(
+      `http://localhost:3000/api/v1/users/${userId}/reservations`,
+    );
     return response.data;
   },
 );
@@ -29,11 +31,20 @@ const reservationsSlice = createSlice({
     reservations: [],
     status: 'idle',
     loading: false,
-    message: '',
     error: null,
     userId: null,
+    enrolled: false,
   },
-  reducers: {},
+  reducers: {
+    reset: (state) => ({
+      ...state,
+      status: 'idle',
+      loading: false,
+      error: null,
+      userId: null,
+      enrolled: false,
+    }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(postReservationToAPI.pending, (state) => ({
@@ -43,6 +54,8 @@ const reservationsSlice = createSlice({
       .addCase(postReservationToAPI.fulfilled, (state, { payload }) => ({
         ...state,
         status: 'succeed',
+        enrolled: true,
+        error: null,
         message: payload.data,
       }))
       .addCase(postReservationToAPI.rejected, (state, action) => ({
@@ -50,10 +63,22 @@ const reservationsSlice = createSlice({
         error: action.payload,
         status: 'failed',
       }))
-      .addCase(getAllReservationsApi.pending, (state) => ({ ...state, status: 'loading' }))
-      .addCase(getAllReservationsApi.fulfilled, (state, action) => ({ ...state, status: 'succeeded', reservations: action.payload }))
-      .addCase(getAllReservationsApi.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));
+      .addCase(getAllReservationsApi.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getAllReservationsApi.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        reservations: action.payload,
+      }))
+      .addCase(getAllReservationsApi.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
   },
 });
-
+// Export the cations
+export const { reset } = reservationsSlice.actions;
 export default reservationsSlice.reducer;

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCoursesApi } from '../redux/coursesSlice';
 import Courses from './Courses';
+import NavMenu from './NavMenu';
 
 const Home = () => {
   const { courses, status } = useSelector((store) => store.courses);
@@ -21,6 +22,7 @@ const Home = () => {
 
   return (
     <section className="home-container">
+      <NavMenu />
       <div className="home-wrapper">
         <div className="over-wrapper">
           <h1 className="home-title">LATEST COURSES</h1>
