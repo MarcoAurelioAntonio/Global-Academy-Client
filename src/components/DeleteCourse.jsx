@@ -6,6 +6,9 @@ const DeleteCourse = () => {
   const dispath = useDispatch();
   const { loading, courses, deleted } = useSelector((state) => state.courses);
 
+  const bgGray = 'border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700';
+  const bgWhite = 'bg-white border-b dark:border-gray-700';
+
   useEffect(() => {
     dispath(getAllCoursesApi());
   }, [dispath]);
@@ -21,7 +24,7 @@ const DeleteCourse = () => {
       {loading ? (
         <h1 className="text-center text-2xl text-green-500">Loading...</h1>
       ) : (
-        <div className="flex overflow-x-auto shadow-md sm:rounded-lg  w-3/5">
+        <div className="flex overflow-x-auto shadow-md sm:rounded-lg  md:w-3/5">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 justify-center ">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -33,9 +36,10 @@ const DeleteCourse = () => {
                 </th>
               </tr>
             </thead>
-            {courses.map((course) => (
+            {courses.map((course, index) => (
               <tbody key={course.id}>
-                <tr className="<%= i % 2 != 0 ? 'border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700' : 'bg-white border-b dark:border-gray-700' %>">
+
+                <tr className={index % 2 === 0 ? bgWhite : bgGray}>
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium whitespace-nowrap dark:text-white"
