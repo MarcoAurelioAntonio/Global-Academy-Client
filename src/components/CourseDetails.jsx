@@ -17,7 +17,7 @@ const CourseDetails = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 mr-16 ">
+    <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 ">
       <nav className="flex">
         <ul className="flex flex-row md:flex-col space-x-8 ">
           <li>
