@@ -25,34 +25,30 @@ const DisplayReservations = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="reservation-list-container">
-      {apiStatus === 'loading' && <p>Loading...</p>}
+    <div className="reservation-container">
+      <div className="reservation-list-container">
+        {apiStatus === 'loading' && <p>Loading...</p>}
 
-      {apiData.map((reservation) => (
-        <Reservation key={reservation.id} reservation={reservation} />
-      ))}
+        {apiData.map((reservation) => (
+          <Reservation key={reservation.id} reservation={reservation} />
+        ))}
 
-      {apiStatus === 'failed' && (
-        <p className="error-message">
-          Error:
-          {apiError}
-        </p>
-      )}
+        {apiStatus === 'failed' && (
+          <p className="error-message">
+            Error:
+            { apiError}
+          </p>
+        )}
 
-      <button type="button" className="back-button" onClick={handleBackToMain}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M19 12H6M12 5l-7 7 7 7" />
-        </svg>
-        Back to Main
-      </button>
+      </div>
+      <div>
+        <button type="button" className="back-button" onClick={handleBackToMain}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13.464 20.536c-.39.39-1.024.39-1.414 0l-6.364-6.364c-.195-.195-.195-.512 0-.707l6.364-6.363c.195-.196.511-.196.707 0s.195.512 0 .707l-5.657 5.657 5.657 5.657c.195.195.195.512 0 .707z" />
+          </svg>
+          Reserve More Courses!
+        </button>
+      </div>
     </div>
   );
 };

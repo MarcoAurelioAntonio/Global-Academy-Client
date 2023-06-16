@@ -16,7 +16,7 @@ const AddCourse = () => {
   const formStatus = useSelector((store) => store.courses.status);
 
   if (formStatus === 'succeed') {
-    setTimeout(() => history('true'));
+    setTimeout(() => history('/true'));
   }
   const handleSubmit = (requestForm) => {
     dispatch(postApiCourseForm(requestForm));
