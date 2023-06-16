@@ -1,32 +1,37 @@
 import React, { useEffect } from 'react';
-import {
-  useDispatch,
-  useSelector,
-} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllReservationsApi } from '../redux/reservationsSlice';
+import Reservation from './Reservation';
 
 const DisplayReservations = () => {
   const dispatch = useDispatch();
   const apiError = useSelector((state) => state.reservations.error);
   const apiData = useSelector((state) => state.reservations.reservations);
   const apiStatus = useSelector((state) => state.reservations.status);
-
-  const userId = 37; // HARDCODED FOR NOW
+  const user = useSelector((store) => store.users.current_user);
+  const userId = user.id; // HARDCODED FOR NOW
 
   useEffect(() => {
     dispatch(getAllReservationsApi(userId));
   }, [dispatch, userId]);
 
   return (
-    <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column',
-    }} // some style to see the content. DETELE IT
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        flexDirection: 'column',
+      }} // some style to see the content. DETELE IT
     >
       <h1>DisplayReservations</h1>
       <br />
       {apiStatus === 'loading' && <p>Loading...</p>}
-
-      <ul>
+      {apiData.map((reservation) => (
+        <Reservation key={reservation.id} reservation={reservation} />
+      ))}
+      {/* <ul>
         {apiData.map((reservation) => (
           <li key={reservation.id}>
             <h2>
@@ -49,13 +54,13 @@ const DisplayReservations = () => {
             <br />
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       {apiStatus === 'failed' && (
-      <p>
-        Error:
-        {apiError}
-      </p>
+        <p>
+          Error:
+          {apiError}
+        </p>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { postUserToAPI } from '../redux/usersSlice';
+import { getUserFromAPI, postUserToAPI } from '../redux/usersSlice';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
@@ -15,7 +15,12 @@ const Login = () => {
       [ev.target.name]: ev.target.value,
     }));
   };
-  const handleClick = (ev) => {
+  const handleLoginClick = (ev) => {
+    ev.preventDefault();
+    dispatch(getUserFromAPI(inputs.name));
+  };
+
+  const handleRegisterClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
   };
@@ -26,14 +31,16 @@ const Login = () => {
   }
 
   return (
-    <section className="content">
-      <form onSubmit={handleClick}>
-        <div className="imgcontainer">LOGO HERE</div>
+    <section className="content-login">
+      <form onSubmit={handleLoginClick}>
+        <div className="imgcontainer">
+          <img className="avatar" src="/images/logo.png" alt="Logo" />
+        </div>
 
         <div className="container">
           <label htmlFor="name">
-            Username
             <input
+              className="field"
               type="text"
               placeholder="Enter Username"
               value={inputs.title}
@@ -44,13 +51,20 @@ const Login = () => {
               minLength={3}
             />
           </label>
-          <br />
-          <button type="submit">Login</button>
-        </div>
-        <div className="container">
-          <ul>
-            <li>{error && `Username ${error}`}</li>
-          </ul>
+          <section className="msg-section">
+            <p className="error">{error}</p>
+          </section>
+          <button className="lg-btn" type="submit" disabled={status === 'loading' && true}>
+            Login
+          </button>
+          <button
+            className="reg-btn"
+            type="button"
+            onClick={handleRegisterClick}
+            disabled={status === 'loading' && true}
+          >
+            Register
+          </button>
         </div>
       </form>
     </section>

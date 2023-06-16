@@ -16,6 +16,21 @@ export const postUserToAPI = createAsyncThunk(
   },
 );
 
+export const getUserFromAPI = createAsyncThunk(
+  'users/getUserFromAPI',
+  async (username, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/users/${username}`,
+      );
+      return response.data;
+    } catch (error) {
+      const msg = error.response.data.error;
+      return thunkAPI.rejectWithValue(msg);
+    }
+  },
+);
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -38,6 +53,21 @@ const usersSlice = createSlice({
         error: null,
       }))
       .addCase(postUserToAPI.rejected, (state, action) => ({
+        ...state,
+        error: action.payload,
+        status: 'failed',
+      }))
+      .addCase(getUserFromAPI.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getUserFromAPI.fulfilled, (state, { payload }) => ({
+        ...state,
+        current_user: payload,
+        status: 'succeed',
+        error: null,
+      }))
+      .addCase(getUserFromAPI.rejected, (state, action) => ({
         ...state,
         error: action.payload,
         status: 'failed',
