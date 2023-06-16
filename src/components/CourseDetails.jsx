@@ -17,9 +17,9 @@ const CourseDetails = () => {
   };
 
   return (
-    <div className="flex justify-between my-16 h-screen gap-12 mr-16 ">
+    <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 mr-16 ">
       <nav className="flex">
-        <ul className="flex space-x-4 md:space-x-8 flex-col">
+        <ul className="flex flex-row md:flex-col space-x-8 ">
           <li>
             <a href="/courses" className="text-blue-500 hover:text-blue-800">
               Courses
@@ -42,7 +42,7 @@ const CourseDetails = () => {
           </li>
         </ul>
       </nav>
-      <div className="flex flex-shrink gap-12">
+      <div className="flex flex-col items-center md:flex-row flex-shrink gap-12">
         <img
           className="course-image"
           width="50%"
