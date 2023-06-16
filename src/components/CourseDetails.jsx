@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseById } from '../redux/coursesSlice';
 
@@ -11,10 +11,6 @@ const CourseDetails = () => {
   useEffect(() => {
     dispatch(getCourseById(id));
   }, [dispatch, id]);
-
-  const hanldeEnroll = () => {
-    // console.log('enroll');
-  };
 
   return (
     <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 ">
@@ -70,9 +66,7 @@ const CourseDetails = () => {
             </li>
             <li className="flex justify-between border p-3  bg-slate-300">
               <p>Start date</p>
-              <p className="font-bold">
-                {course.start_date}
-              </p>
+              <p className="font-bold">{course.start_date}</p>
             </li>
             <li className="flex justify-between p-3 ">
               <p>End date</p>
@@ -82,16 +76,17 @@ const CourseDetails = () => {
               </p>
             </li>
           </ul>
-          <button
-            type="button"
-            className=" flex bg-[#98BF0C] hover:bg-blue-700 text-white text-lg font-bold py-4 px-2 border border-blue-700 rounded-full items-center border-none justify-around mt-10"
-            onClick={() => hanldeEnroll()}
+
+          <Link
+            className="flex bg-[#98BF0C] hover:bg-blue-700 text-white text-lg font-bold py-4 px-2 border border-blue-700 rounded-full items-center border-none justify-around mt-10"
+            to="/add-reservation"
+            state={course}
           >
             Enroll Course
             <span className="material-symbols-outlined">
               arrow_circle_right
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
