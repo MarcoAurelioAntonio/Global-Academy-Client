@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Formik,
@@ -7,10 +7,12 @@ import {
   ErrorMessage,
 } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import LinearProgress from '@mui/material/LinearProgress';
 import { postApiCourseForm } from '../redux/coursesSlice';
 import './addCourse.css';
 
 const AddCourse = () => {
+  const [progress, setProgress] = useState(0);
   const dispatch = useDispatch();
   const history = useNavigate();
   const formError = useSelector((store) => store.courses.error);
@@ -48,10 +50,16 @@ const AddCourse = () => {
     if (!values.price || values.price < 0) {
       errors.price = 'Price is required or must be $00,0.- or a positive number';
     }
-
+    // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
     const totalFields = Object.keys(values).length;
     const newProgress = Math.round((completedFields / totalFields) * 100);
+
+    setProgress(newProgress);
+
+    if (completedFields === 0) {
+      setProgress(0);
+    }
 
     return errors;
   };
@@ -68,6 +76,7 @@ const AddCourse = () => {
   return (
     <div className="add-course-form-container">
       <h2 className="add-course-form-title">Add Your Course Here</h2>
+      <LinearProgress className="progress-bar" variant="determinate" value={progress} />
       <Formik
         onSubmit={handleSubmit}
         validate={validateForm}
