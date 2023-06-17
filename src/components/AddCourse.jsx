@@ -49,6 +49,10 @@ const AddCourse = () => {
       errors.price = 'Price is required or must be $00,0.- or a positive number';
     }
 
+    const completedFields = Object.values(values).filter((value) => value !== '').length;
+    const totalFields = Object.keys(values).length;
+    const newProgress = Math.round((completedFields / totalFields) * 100);
+
     return errors;
   };
 
