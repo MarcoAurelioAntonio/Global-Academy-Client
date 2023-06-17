@@ -21,6 +21,7 @@
 }
 
 .add-course-form {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
@@ -106,4 +107,13 @@
 
 .form-submit-button:active {
   background-color: #00f;
+}
+
+.loading-form-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ccc;
+  z-index: 10;
 }

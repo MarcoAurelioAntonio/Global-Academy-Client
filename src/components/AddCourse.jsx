@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Formik,
@@ -8,20 +8,29 @@ import {
 } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import { postApiCourseForm } from '../redux/coursesSlice';
 import './addCourse.css';
 
 const AddCourse = () => {
-  const [progress, setProgress] = useState(0);
   const dispatch = useDispatch();
   const history = useNavigate();
   const formError = useSelector((store) => store.courses.error);
   const formStatus = useSelector((store) => store.courses.status);
 
-  if (formStatus === 'succeed') {
-    setTimeout(() => history('true'), 2000);
-  }
+  const [progress, setProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (formStatus === 'succeed') {
+      setTimeout(() => {
+        setIsLoading(false);
+        history('/true');
+      }, 3000);
+    }
+  }, [formStatus, history]);
   const handleSubmit = (requestForm) => {
+    setIsLoading(true);
     dispatch(postApiCourseForm(requestForm));
   };
 
@@ -170,6 +179,12 @@ const AddCourse = () => {
 
           <button type="submit" className="form-submit-button">Submit</button>
           {formStatus === 'failed' && <p className="form-error">{formError}</p>}
+
+          {isLoading && (
+            <div className="loading-form-spin">
+              <CircularProgress className="form-loading" size={150} color="inherit" thickness={2} />
+            </div>
+          )}
         </Form>
       </Formik>
     </div>
