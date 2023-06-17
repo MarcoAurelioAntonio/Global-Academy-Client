@@ -177,7 +177,7 @@ const AddCourse = () => {
             <ErrorMessage name="price" component="div" className="form-error" />
           </div>
 
-          <button type="submit" className="form-submit-button">Submit</button>
+          <button type="submit" className="form-submit-button">Add new course</button>
           {formStatus === 'failed' && <p className="form-error">{formError}</p>}
 
           {isLoading && (
