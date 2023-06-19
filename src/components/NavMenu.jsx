@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavMenu = ({ bgColor }) => {
+const NavMenu = ({ bgColor, isBacking, isHide }) => {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(!isHide);
   if (!isOpen) {
     return (
-      <button type="button" onClick={() => setIsOpen(true)}>
+      <button className="burger-button" type="button" onClick={() => setIsOpen(true)}>
         <span
           className={bgColor === 'gray' ? 'material-symbols-outlined hamburger' : 'material-symbols-outlined hamburger green'}
         >
@@ -33,15 +33,29 @@ const NavMenu = ({ bgColor }) => {
       <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
         <NavLink to="/delete_course">DELETE COURSE</NavLink>
       </div>
-      <button
-        type="button"
-        className="close-btn"
-        onClick={() => setIsOpen(false)}
-      >
-        <span className="material-symbols-outlined back-btn">
-          arrow_left
-        </span>
-      </button>
+      {
+        isBacking ? (
+          <button
+            type="button"
+            className="close-btn"
+            onClick={() => setIsOpen(false)}
+          >
+            <span className="material-symbols-outlined back-btn">
+              arrow_left
+            </span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="close-btn"
+            onClick={() => setIsOpen(false)}
+          >
+            <span className="material-symbols-outlined back-btn">
+              arrow_left
+            </span>
+          </button>
+        )
+      }
     </div>
   );
 };
@@ -49,4 +63,6 @@ export default NavMenu;
 
 NavMenu.propTypes = {
   bgColor: PropTypes.string.isRequired,
+  isBacking: PropTypes.bool.isRequired,
+  isHide: PropTypes.bool.isRequired,
 };

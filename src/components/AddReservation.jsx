@@ -30,7 +30,7 @@ const AddReservation = () => {
 
   return (
     <div className="flex">
-      <NavMenu bgColor="gray" />
+      <NavMenu bgColor="gray" isHide />
       <section className="enrollment-content">
 
         <div className="enrollment-title">

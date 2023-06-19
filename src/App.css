@@ -175,6 +175,18 @@
   left: 30px;
 }
 
+.burger-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
 /* ==================== Login starts ======================= */
 .content-login {
   height: 100vh;
@@ -276,13 +288,8 @@ img.avatar {
 
 .hamburger {
   color: white;
-  position: absolute;
   font-size: 2rem;
   font-weight: 900;
-  cursor: pointer;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2;
 }
 
 .hamburger.green {
