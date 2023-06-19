@@ -17,6 +17,7 @@ const AddCourse = () => {
   const history = useNavigate();
   const formError = useSelector((store) => store.courses.error);
   const formStatus = useSelector((store) => store.courses.status);
+  const nameError = 'Course name already exists, please choose another';
 
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,11 +28,17 @@ const AddCourse = () => {
         setIsLoading(false);
         history('/true');
       }, 3000);
+    } else if (formStatus === 'failed') {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
     }
   }, [formStatus, history]);
+
   const handleSubmit = (requestForm) => {
-    setIsLoading(true);
     dispatch(postApiCourseForm(requestForm));
+
+    setIsLoading(true);
   };
 
   const validateForm = (values) => {
@@ -57,7 +64,7 @@ const AddCourse = () => {
       errors.course_type = 'Course type is required or must be at least 3 characters long';
     }
     if (!values.price || values.price < 0) {
-      errors.price = 'Price is required or must be $00,0.- or a positive number';
+      errors.price = 'Price is required or must be a positive number';
     }
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
@@ -178,7 +185,8 @@ const AddCourse = () => {
           </div>
 
           <button type="submit" className="form-submit-button">Add new course</button>
-          {formStatus === 'failed' && <p className="form-error">{formError}</p>}
+          {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
+          {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
 
           {isLoading && (
             <div className="loading-form-spin">
