@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <section className="home-container">
-      <NavMenu isShow />
+     <NavMenu bgColor='green'/>
       <div className="home-wrapper">
         <div className="over-wrapper">
           <h1 className="home-title">LATEST COURSES</h1>

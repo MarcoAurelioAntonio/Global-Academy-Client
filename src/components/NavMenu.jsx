@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-const NavMenu = ({ isShow }) => {
+const NavMenu = ({ bgColor }) => {
   const location = useLocation();
-  // const [isOpen, setIsOpen] = useState(false);
-  if (!isShow) return null;
+  const [isOpen, setIsOpen] = useState(true);
+  if (!isOpen) {
+    return (
+      <span className={bgColor === 'gray'? "material-symbols-outlined hamburger": "material-symbols-outlined hamburger green"} onClick={() => setIsOpen(true)}>
+        menu
+      </span>
+    );
+  }
   return (
-    <div className="bg-white border h-screen flex flex-col py-40 w-2/6 max-w-fit">
+    <div className="nav-container bg-white border h-screen flex flex-col py-40 w-2/6 max-w-fit">
       <div className={`nav_item ${location.pathname === '/' && 'active'}`}>
         <NavLink exact to="/">COURSES</NavLink>
       </div>
@@ -18,6 +25,10 @@ const NavMenu = ({ isShow }) => {
       <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
         <NavLink to="/delete_course">DELETE COURSE</NavLink>
       </div>
+      <div
+        className='close-btn'
+        onClick={() => setIsOpen(false)}  
+      >Closing</div>
     </div>
   );
 };

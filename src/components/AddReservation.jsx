@@ -31,14 +31,8 @@ const AddReservation = () => {
 
   return (
     <div className="flex">
-      {showMenu && <NavMenu isShow={showMenu} />}
-
+     <NavMenu bgColor='gray'/>
       <section className="enrollment-content">
-        {!showMenu && (
-        <span className="material-symbols-outlined hamburger" onClick={() => setshowMenu(!showMenu)}>
-          menu
-        </span>
-        )}
 
         <div className="enrollment-title">
           Are you ready to unlock your full potential?

@@ -148,6 +148,20 @@
   justify-content: center;
 }
 
+.nav-container {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  bottom: 0;
+  right: -100px;
+  width: 100px;
+  height: 50px;
+  background: red;
+  z-index: 2;
+}
+
 /* ==================== Login starts ======================= */
 .content-login {
   height: 100vh;
@@ -255,6 +269,11 @@ img.avatar {
   cursor: pointer;
   top: 1rem;
   left: 1rem;
+  z-index: 2;
+}
+
+.hamburger.green {
+  background: #98BF0C;
 }
 
 .enrollment-title {
