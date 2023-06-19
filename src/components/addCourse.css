@@ -96,17 +96,7 @@
 }
 
 .form-submit-button:hover {
-  background-color: #007bff;
-}
-
-.form-submit-button:disabled {
-  background-color: #39f;
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.form-submit-button:active {
-  background-color: #00f;
+  background-color: #627b08;
 }
 
 .loading-form-spin {

@@ -96,10 +96,10 @@ const AddCourse = () => {
         className="progress-bar"
         variant="determinate"
         value={progress}
-        color="#98bf0c"
+        color="success"
         sx={{
-          bgcolor: 'grey.300',
-          height: 10,
+          bgcolor: 'grey.400',
+          height: 5,
         }}
       />
       <Formik
