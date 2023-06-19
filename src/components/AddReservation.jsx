@@ -9,7 +9,6 @@ const AddReservation = () => {
   const currentLocation = useLocation();
   const courseSelected = currentLocation.state || null;
   const [course, setCourse] = useState(courseSelected?.id);
-  const [showMenu, setshowMenu] = useState(false);
   const { status, error, enrolled } = useSelector(
     (store) => store.reservations,
   );
@@ -31,7 +30,7 @@ const AddReservation = () => {
 
   return (
     <div className="flex">
-     <NavMenu bgColor='gray'/>
+      <NavMenu bgColor="gray" />
       <section className="enrollment-content">
 
         <div className="enrollment-title">

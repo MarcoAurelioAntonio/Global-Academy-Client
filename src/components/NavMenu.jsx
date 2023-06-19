@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NavMenu = ({ bgColor }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(true);
   if (!isOpen) {
     return (
-      <span className={bgColor === 'gray'? "material-symbols-outlined hamburger": "material-symbols-outlined hamburger green"} onClick={() => setIsOpen(true)}>
-        menu
-      </span>
+      <button type="button" onClick={() => setIsOpen(true)}>
+        <span
+          className={bgColor === 'gray' ? 'material-symbols-outlined hamburger' : 'material-symbols-outlined hamburger green'}
+        >
+          menu
+        </span>
+      </button>
     );
   }
   return (
@@ -28,13 +33,20 @@ const NavMenu = ({ bgColor }) => {
       <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
         <NavLink to="/delete_course">DELETE COURSE</NavLink>
       </div>
-      <div
-        className='close-btn'
-        onClick={() => setIsOpen(false)}  
-      ><span class="material-symbols-outlined back-btn">
-      arrow_left
-      </span></div>
+      <button
+        type="button"
+        className="close-btn"
+        onClick={() => setIsOpen(false)}
+      >
+        <span className="material-symbols-outlined back-btn">
+          arrow_left
+        </span>
+      </button>
     </div>
   );
 };
 export default NavMenu;
+
+NavMenu.propTypes = {
+  bgColor: PropTypes.string.isRequired,
+};
