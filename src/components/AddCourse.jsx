@@ -26,7 +26,7 @@ const AddCourse = () => {
     if (formStatus === 'succeed') {
       setTimeout(() => {
         setIsLoading(false);
-        history('/true');
+        history('/');
       }, 3000);
     } else if (formStatus === 'failed') {
       setTimeout(() => {
