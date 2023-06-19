@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCoursesApi, deleteCourseById } from '../redux/coursesSlice';
 
 const DeleteCourse = () => {
   const dispath = useDispatch();
-  const { loading, courses, deleted } = useSelector((state) => state.courses);
+
+  const { loading, courses } = useSelector((state) => state.courses);
+  const [isDeleted, setDeleted] = useState(false);
+
+  const handleDelete = () => {
+    setDeleted(true);
+    setTimeout(() => {
+      setDeleted(false);
+    }, 5000);
+  };
 
   const bgGray = 'border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700';
   const bgWhite = 'bg-white border-b dark:border-gray-700';
@@ -15,9 +24,9 @@ const DeleteCourse = () => {
 
   return (
     <div className="delete-course flex flex-col items-center mt-10 h-screen">
-      {deleted ? (
-        <h1 className="hide text-center text-2xl text-red-500 mb-5">
-          Course Deleted Sucessfully.
+      {isDeleted ? (
+        <h1 className="text-center text-medium text-red-500 mb-5">
+          Course Deleted Successfully.
         </h1>
       ) : null}
 
@@ -36,28 +45,36 @@ const DeleteCourse = () => {
                 </th>
               </tr>
             </thead>
-            {courses.map((course, index) => (
-              <tbody key={course.id}>
-
-                <tr className={index % 2 === 0 ? bgWhite : bgGray}>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium whitespace-nowrap dark:text-white"
-                  >
-                    {course.name}
-                  </th>
-                  <td className="px-6 py-4">
-                    <button
-                      type="button"
-                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                      onClick={() => dispath(deleteCourseById(course.id))}
+            {courses.length === 0 ? (
+              <h1 className="text-center text-2xl text-red-500">
+                No Courses Found!
+              </h1>
+            ) : (
+              courses.map((course, index) => (
+                <tbody key={course.id}>
+                  <tr className={index % 2 === 0 ? bgWhite : bgGray}>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium whitespace-nowrap dark:text-white"
                     >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
+                      {course.name}
+                    </th>
+                    <td className="px-6 py-4">
+                      <button
+                        type="button"
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        onClick={() => {
+                          dispath(deleteCourseById(course.id));
+                          handleDelete();
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              ))
+            )}
           </table>
         </div>
       )}
