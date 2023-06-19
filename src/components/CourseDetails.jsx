@@ -46,7 +46,7 @@ const CourseDetails = () => {
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
           alt={course.title}
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col md:w-2/5">
           <h1 className="text-4xl text-end">{course.name}</h1>
           <p className="text-end">{course.description}</p>
           <ul className="mt-4">
@@ -78,7 +78,7 @@ const CourseDetails = () => {
           </ul>
 
           <Link
-            className="flex bg-[#98BF0C] hover:bg-blue-700 text-white text-lg font-bold py-4 px-2 border border-blue-700 rounded-full items-center border-none justify-around mt-10"
+            className="enroll-btn"
             to="/add-reservation"
             state={course}
           >
