@@ -92,7 +92,16 @@ const AddCourse = () => {
   return (
     <div className="add-course-form-container">
       <h2 className="add-course-form-title">Add Your Course Here</h2>
-      <LinearProgress className="progress-bar" variant="determinate" value={progress} />
+      <LinearProgress
+        className="progress-bar"
+        variant="determinate"
+        value={progress}
+        color="#98bf0c"
+        sx={{
+          bgcolor: 'grey.300',
+          height: 10,
+        }}
+      />
       <Formik
         onSubmit={handleSubmit}
         validate={validateForm}
