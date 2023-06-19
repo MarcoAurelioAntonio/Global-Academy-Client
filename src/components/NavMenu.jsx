@@ -28,7 +28,9 @@ const NavMenu = ({ bgColor }) => {
       <div
         className='close-btn'
         onClick={() => setIsOpen(false)}  
-      >Closing</div>
+      ><span class="material-symbols-outlined back-btn">
+      arrow_left
+      </span></div>
     </div>
   );
 };
