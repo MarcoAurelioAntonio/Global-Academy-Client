@@ -19,6 +19,9 @@ const AddCourse = () => {
   const formStatus = useSelector((store) => store.courses.status);
   const nameError = 'Course name already exists, please choose another';
 
+  const handleSubmit = (requestForm) => {
+    dispatch(postApiCourseForm(requestForm));
+  }
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
