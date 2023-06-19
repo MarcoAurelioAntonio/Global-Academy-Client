@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCoursesApi, deleteCourseById } from '../redux/coursesSlice';
+import NavMenu from './NavMenu';
 
 const DeleteCourse = () => {
   const dispath = useDispatch();
@@ -24,6 +25,7 @@ const DeleteCourse = () => {
 
   return (
     <div className="delete-course flex flex-col items-center mt-10 h-screen">
+      <NavMenu />
       {isDeleted ? (
         <h1 className="text-center text-medium text-red-500 mb-5">
           Course Deleted Successfully.

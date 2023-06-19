@@ -55,6 +55,10 @@ const router = createBrowserRouter([
         path: '/delete_course',
         element: <DeleteCourse />,
       },
+      {
+        path: '/home',
+        element: <Home />,
+      },
     ],
   },
 ]);
