@@ -392,6 +392,16 @@ img.avatar {
 
 /* ==================== Reservation Component ends ======================= */
 
+@media screen and (max-width: 768px) {
+  .nav-container {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+}
+
 @media screen and (max-width: 640px) {
   /* Home style Mobile */
   .home-wrapper {
