@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <CourseDetails />,
+        element: (
+          <RouteProtection>
+            <CourseDetails />
+          </RouteProtection>
+        ),
       },
       {
         path: '/add-reservation',

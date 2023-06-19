@@ -54,4 +54,10 @@ code {
   .active {
     @apply text-white bg-[#97BF11];
   }
+  
+   .enroll-btn {
+    @apply flex bg-[#98BF0C] hover:bg-blue-700 text-white text-lg 
+    font-bold py-4 px-2 border border-blue-700 rounded-full items-center 
+    border-none justify-around mt-10 md:w-3/4 md:ml-auto
+   }
 }
