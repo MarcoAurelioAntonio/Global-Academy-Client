@@ -1,3 +1,14 @@
+/* Google icon */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+}
+
 .App {
   text-align: center;
 }
@@ -138,6 +149,32 @@
   justify-content: center;
 }
 
+.nav-container {
+  position: relative;
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: -70px;
+  width: 70px;
+  height: 60px;
+  background: #98bf0c;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+  border-top-right-radius: 44%;
+  border-bottom-right-radius: 44%;
+}
+
+.back-btn {
+  font-size: 2rem;
+  position: relative;
+  left: 30px;
+}
+
 /* ==================== Login starts ======================= */
 .content-login {
   height: 100vh;
@@ -230,10 +267,26 @@ img.avatar {
   align-items: center;
   justify-content: center;
   background:
-    linear-gradient(rgba(1, 77, 20, 0.8), rgba(21, 85, 2, 0.8)),
+    linear-gradient(rgba(152, 191, 12, 0.8), rgba(152, 191, 12, 0.8)),
     url("https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=1600")
     center;
   background-size: cover;
+  position: relative;
+}
+
+.hamburger {
+  color: white;
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.hamburger.green {
+  background: #98bf0c;
 }
 
 .enrollment-title {
@@ -270,12 +323,12 @@ img.avatar {
 }
 
 .enroll-container option {
-  background-color: rgba(1, 77, 20, 0.8);
+  background-color: #98bf0c;
 }
 
 .enroll-btn {
   background-color: white;
-  color: green;
+  color: #98bf0c;
   padding: 10px 15px;
   margin: 8px 0;
   border-radius: 20px;

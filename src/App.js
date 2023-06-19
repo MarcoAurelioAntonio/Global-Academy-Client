@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <CourseDetails />,
+        element: (
+          <RouteProtection>
+            <CourseDetails />
+          </RouteProtection>
+        ),
       },
       {
         path: '/add-reservation',
@@ -50,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: '/delete_course',
         element: <DeleteCourse />,
+      },
+      {
+        path: '/home',
+        element: <Home />,
       },
     ],
   },
