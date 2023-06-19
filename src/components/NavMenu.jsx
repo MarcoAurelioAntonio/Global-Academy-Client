@@ -1,8 +1,9 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
-const NavMenu = () => {
+const NavMenu = ({ isShow }) => {
   const location = useLocation();
-
+  // const [isOpen, setIsOpen] = useState(false);
+  if (!isShow) return null;
   return (
     <div className="bg-white border h-screen flex flex-col py-40 w-2/6 max-w-fit">
       <div className={`nav_item ${location.pathname === '/' && 'active'}`}>
