@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import LinearProgress from '@mui/material/LinearProgress';
 import CircularProgress from '@mui/material/CircularProgress';
 import { postApiCourseForm } from '../redux/coursesSlice';
+import NavMenu from './NavMenu';
 import './addCourse.css';
 
 const AddCourse = () => {
@@ -90,121 +91,125 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="add-course-form-container">
-      <h2 className="add-course-form-title">Add Your Course Here</h2>
-      <LinearProgress
-        className="progress-bar"
-        variant="determinate"
-        value={progress}
-        color="success"
-        sx={{
-          bgcolor: 'grey.400',
-          height: 5,
-        }}
-      />
-      <Formik
-        onSubmit={handleSubmit}
-        validate={validateForm}
-        initialValues={initialValues}
-      >
-        <Form className="add-course-form">
-          <div className="form-field">
-            <label htmlFor="name" className="form-label">
-              Name:
-              <span className="form-label-required">*</span>
+    <div className="flex">
+      <NavMenu bgColor="green" />
+      <div className="add-course-form-container">
+        <h2 className="add-course-form-title">Add Your Course Here</h2>
+        <LinearProgress
+          className="progress-bar"
+          variant="determinate"
+          value={progress}
+          color="success"
+          sx={{
+            bgcolor: 'grey.400',
+            height: 5,
+          }}
+        />
+        <Formik
+          onSubmit={handleSubmit}
+          validate={validateForm}
+          initialValues={initialValues}
+        >
+          <Form className="add-course-form">
+            <div className="form-field">
+              <label htmlFor="name" className="form-label">
+                Name:
+                <span className="form-label-required">*</span>
+                <Field
+                  type="text"
+                  id="name"
+                  name="name"
+                  aria-describedby="name-error"
+                  className="form-input"
+                />
+              </label>
+              <ErrorMessage name="name" component="div" id="name-error" className="form-error" />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="start_date" className="form-label">
+                Start Date:
+                <span className="form-label-required">*</span>
+              </label>
               <Field
-                type="text"
-                id="name"
-                name="name"
-                aria-describedby="name-error"
+                type="date"
+                id="start_date"
+                name="start_date"
                 className="form-input"
               />
-            </label>
-            <ErrorMessage name="name" component="div" id="name-error" className="form-error" />
-          </div>
+              <ErrorMessage name="start_date" component="div" className="form-error" />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="start_date" className="form-label">
-              Start Date:
-              <span className="form-label-required">*</span>
-            </label>
-            <Field
-              type="date"
-              id="start_date"
-              name="start_date"
-              className="form-input"
-            />
-            <ErrorMessage name="start_date" component="div" className="form-error" />
-          </div>
+            <div className="form-field">
+              <label htmlFor="end_date" className="form-label">
+                End Date:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field
+                type="date"
+                id="end_date"
+                name="end_date"
+                className="form-input"
+              />
+              <ErrorMessage name="end_date" component="div" className="form-error" />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="end_date" className="form-label">
-              End Date:
-              <span className="form-label-required">*</span>
-            </label>
-            <Field
-              type="date"
-              id="end_date"
-              name="end_date"
-              className="form-input"
-            />
-            <ErrorMessage name="end_date" component="div" className="form-error" />
-          </div>
+            <div className="form-field">
+              <label htmlFor="description" className="form-label">
+                Description:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field
+                as="textarea"
+                id="description"
+                name="description"
+                className="form-textarea"
+              />
+              <ErrorMessage name="description" component="div" className="form-error" />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="description" className="form-label">
-              Description:
-              <span className="form-label-required">*</span>
-            </label>
-            <Field
-              as="textarea"
-              id="description"
-              name="description"
-              className="form-textarea"
-            />
-            <ErrorMessage name="description" component="div" className="form-error" />
-          </div>
+            <div className="form-field">
+              <label htmlFor="course_type" className="form-label">
+                Course Type:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field
+                type="text"
+                id="course_type"
+                name="course_type"
+                className="form-input"
+              />
+              <ErrorMessage name="course_type" component="div" className="form-error" />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="course_type" className="form-label">
-              Course Type:
-              <span className="form-label-required">*</span>
-            </label>
-            <Field
-              type="text"
-              id="course_type"
-              name="course_type"
-              className="form-input"
-            />
-            <ErrorMessage name="course_type" component="div" className="form-error" />
-          </div>
+            <div className="form-field">
+              <label htmlFor="price" className="form-label">
+                Price:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field
+                type="number"
+                id="price"
+                name="price"
+                className="form-input"
+              />
+              <ErrorMessage name="price" component="div" className="form-error" />
+            </div>
 
-          <div className="form-field">
-            <label htmlFor="price" className="form-label">
-              Price:
-              <span className="form-label-required">*</span>
-            </label>
-            <Field
-              type="number"
-              id="price"
-              name="price"
-              className="form-input"
-            />
-            <ErrorMessage name="price" component="div" className="form-error" />
-          </div>
+            <button type="submit" className="form-submit-button">Add new course</button>
+            {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
+            {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
 
-          <button type="submit" className="form-submit-button">Add new course</button>
-          {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
-          {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
-
-          {isLoading && (
+            {isLoading && (
             <div className="loading-form-spin">
               <CircularProgress className="form-loading" size={150} color="inherit" thickness={2} />
             </div>
-          )}
-        </Form>
-      </Formik>
+            )}
+          </Form>
+        </Formik>
+      </div>
     </div>
+
   );
 };
 
