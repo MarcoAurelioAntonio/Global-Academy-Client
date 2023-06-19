@@ -22,6 +22,9 @@ const NavMenu = ({ bgColor }) => {
       <div className={`nav_item ${location.pathname === '/all_user_reservations' && 'active'}`}>
         <NavLink to="/all_user_reservations">MY ENROLLMENTS</NavLink>
       </div>
+      <div className={`nav_item ${location.pathname === '/add_course' && 'active'}`}>
+        <NavLink to="/add_course">ADD COURSE</NavLink>
+      </div>
       <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
         <NavLink to="/delete_course">DELETE COURSE</NavLink>
       </div>
