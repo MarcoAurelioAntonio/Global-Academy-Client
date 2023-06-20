@@ -31,7 +31,7 @@
 
 # 📖 Hello Rails React <a name="about-project"></a>
 
-**Appointment-Client-Side React Frontend** 
+**Global Academy - Client-Side** 
 
  - In this app, you can book between any of the available courses, and as a user you can not only book, but create a new one so that others can also enjoy.
 
