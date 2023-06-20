@@ -225,6 +225,7 @@ p.course-label {
   padding: 20px 0;
   box-sizing: border-box;
   height: 100vh;
+  background: white;
 }
 
 .close-btn {
