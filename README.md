@@ -33,7 +33,7 @@
 
 **Appointment-Client-Side React Frontend** 
 
- - In this app, you can book between any of the available courses, and as a user you can not only book, but create - a new one so that others can also enjoy.
+ - In this app, you can book between any of the available courses, and as a user you can not only book, but create a new one so that others can also enjoy.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -58,11 +58,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[The user logs in to the website, only by typing the username]**
-- **[The user can book a desired course]**
-- **[The app is responsive in Mobile, Tablet and Desktop versions]**
-- **[When the user clicks the "Delete" button, the selected item is marked as removed and does not show on the main list anymore]**
-- **[When the user clicks the "My reservations" link in the navigation panel they can see a list of their reservations]**
+- [ ] **[The user logs in to the website, only by typing the username]**
+- [ ] **[The user can book a desired course]**
+- [ ] **[The app is responsive in Mobile, Tablet and Desktop versions]**
+- [ ] **[When the user clicks the "Delete" button, the selected item is marked as removed and does not show on the main list anymore]**
+- [ ] **[When the user clicks the "My reservations" link in the navigation panel they can see a list of their reservations]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
