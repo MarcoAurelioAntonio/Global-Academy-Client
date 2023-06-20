@@ -26,7 +26,7 @@ const DeleteCourse = () => {
   return (
     <div className="flex">
       <NavMenu bgColor="green" />
-      <div className="delete-course flex flex-col items-center mt-10 h-screen">
+      <div className="delete-course flex flex-col items-center mt-10 h-screen w-screen">
         {isDeleted ? (
           <h1 className="text-center text-medium text-red-500 mb-5">
             Course Deleted Successfully.
