@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>Appointment Client Side</b></h3>
+  <h3><b>Global Academy - Client Side</b></h3>
 
 </div>
 
