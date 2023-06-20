@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import Login from '../components/Login';
 
-it('Should display 3 countries on the screen', () => {
+it('Should display 2 buttons on the screen', () => {
   const mockStore = configureStore([]);
   const user = {
     id: 68,

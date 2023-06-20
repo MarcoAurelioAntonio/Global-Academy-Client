@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Should display 2 butt on the screen 1`] = `
+Object {
+  "users": Object {
+    "current_user": Object {
+      "id": 68,
+      "name": "Teddy",
+    },
+    "error": null,
+    "loading": false,
+    "status": "idle",
+  },
+}
+`;
+
+exports[`Should display 2 buttons on the screen 1`] = `
+Object {
+  "users": Object {
+    "current_user": Object {
+      "id": 68,
+      "name": "Teddy",
+    },
+    "error": null,
+    "loading": false,
+    "status": "idle",
+  },
+}
+`;
+
+exports[`Should display 2 countries on the screen 1`] = `
+Object {
+  "users": Object {
+    "current_user": Object {
+      "id": 68,
+      "name": "Teddy",
+    },
+    "error": null,
+    "loading": false,
+    "status": "idle",
+  },
+}
+`;
+
 exports[`Should display 3 countries on the screen 1`] = `
 Object {
   "users": Object {
