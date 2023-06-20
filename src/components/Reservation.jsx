@@ -14,7 +14,7 @@ const Reservation = ({ reservation }) => (
         <p>End date :</p>
         <span>{reservation.course.end_date}</span>
       </div>
-      <div className="course-info">
+      <div className="card-price">
         <p>Price :</p>
         <span>{`$ ${reservation.course.price}`}</span>
       </div>
