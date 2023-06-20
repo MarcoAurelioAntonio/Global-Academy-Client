@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTwitter, faFacebookF, faGoogle, faVimeo, faPinterest,
+} from '@fortawesome/free-brands-svg-icons';
+
+import './navMenuFooter.css';
 
 const NavMenu = ({ bgColor, isBacking, isHide }) => {
   const location = useLocation();
@@ -56,6 +62,36 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
           </button>
         )
       }
+
+      <div className="footer">
+        <div className="social-icons">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faTwitter} />
+            <i className="px-2" />
+          </a>
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faFacebookF} />
+            <i className="px-2" />
+          </a>
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGoogle} />
+            <i className="px-2" />
+          </a>
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faVimeo} />
+            <i className="px-2" />
+          </a>
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faPinterest} />
+            <i className="px-2" />
+          </a>
+        </div>
+        <div className="text">
+          <span>&copy; 2023 Global Academy</span>
+        </div>
+
+      </div>
+
     </div>
   );
 };
