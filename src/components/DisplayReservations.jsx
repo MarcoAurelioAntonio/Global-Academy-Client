@@ -25,8 +25,8 @@ const DisplayReservations = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="flex w-screen">
-      <NavMenu bgColor="green" />
+    <div className="flex">
+      <NavMenu bgColor="green" isBacking={false} isHide={false} />
       <div className="reservation-container">
         <div className="reservation-list-container">
           {apiStatus === 'loading' && <p>Loading...</p>}
