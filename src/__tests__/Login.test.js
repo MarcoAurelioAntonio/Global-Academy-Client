@@ -29,8 +29,8 @@ it('Should display 2 buttons on the screen', () => {
       </Provider>
     </BrowserRouter>,
   );
-  const allLinks = screen.getAllByRole('button');
+  const buttons = screen.getAllByRole('button');
 
-  expect(allLinks).toHaveLength(2);
+  expect(buttons).toHaveLength(2);
   expect(store.getState()).toMatchSnapshot();
 });
