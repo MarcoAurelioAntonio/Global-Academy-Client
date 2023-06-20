@@ -442,10 +442,6 @@ img.avatar {
   border-radius: 5px 5px 0 0;
 }
 
-.container {
-  padding: 8px;
-}
-
 .course-name {
   margin-bottom: 5px;
   margin-left: 25px;
@@ -462,6 +458,7 @@ img.avatar {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
+  padding: 0 10px;
 }
 
 .course-info p {
@@ -480,11 +477,12 @@ img.avatar {
   justify-content: center;
   gap: 10px;
   font-size: 20px;
-  background-color: #aaa;
+  height: 40px;
+  background-color: #98bf0c;
 }
 
 .card-price p {
-  color: #000;
+  color: #fff;
   font-style: italic;
 }
 

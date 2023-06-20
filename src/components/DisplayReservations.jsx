@@ -28,8 +28,13 @@ const DisplayReservations = () => {
     <div className="flex">
       <NavMenu bgColor="green" isBacking={false} isHide={false} />
       <div className="reservation-container">
+        <h2 className="course-title">MY COURSES</h2>
         <div className="reservation-list-container">
           {apiStatus === 'loading' && <p>Loading...</p>}
+
+          {apiData.length === 0 && (
+            <p className="message">You don`t have any Enrollment yet...</p>
+          )}
 
           {apiData.map((reservation) => (
             <Reservation key={reservation.id} reservation={reservation} />
@@ -45,10 +50,7 @@ const DisplayReservations = () => {
         </div>
         <div>
           <button type="button" className="back-button" onClick={handleBackToMain}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M13.464 20.536c-.39.39-1.024.39-1.414 0l-6.364-6.364c-.195-.195-.195-.512 0-.707l6.364-6.363c.195-.196.511-.196.707 0s.195.512 0 .707l-5.657 5.657 5.657 5.657c.195.195.195.512 0 .707z" />
-            </svg>
-            Reserve More Courses!
+            Enroll for More
           </button>
         </div>
       </div>
