@@ -70,19 +70,18 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   overflow: scroll;
 }
 
 .over-wrapper {
-  position: absolute;
-  top: 6%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 40px;
 }
 
 .home-title {
@@ -95,6 +94,7 @@
 .carousel-courses {
   width: 100%;
   height: 500px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -147,7 +147,7 @@ img.carousel-icon {
   border-radius: 50%;
 }
 
-img.course-image {
+img.course-image-nelson {
   width: 96%;
   height: 96%;
   border-radius: 50%;
@@ -216,7 +216,16 @@ p.course-label {
 }
 
 .nav-container {
+  min-width: 200px;
+  max-width: 220px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background: white;
 }
 
 .close-btn {
@@ -244,7 +253,7 @@ p.course-label {
 .burger-button {
   width: 40px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,6 +369,7 @@ img.avatar {
 
 .hamburger.green {
   background: #98bf0c;
+  border-radius: 20%;
 }
 
 .enrollment-title {
@@ -399,7 +409,7 @@ img.avatar {
   background-color: #98bf0c;
 }
 
-.enroll-btn {
+.enroll-btn-ken {
   background-color: white;
   color: #98bf0c;
   padding: 10px 15px;
@@ -433,10 +443,6 @@ img.avatar {
   border-radius: 5px 5px 0 0;
 }
 
-.container {
-  padding: 8px;
-}
-
 .course-name {
   margin-bottom: 5px;
   margin-left: 25px;
@@ -453,6 +459,7 @@ img.avatar {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
+  padding: 0 10px;
 }
 
 .course-info p {
@@ -471,11 +478,12 @@ img.avatar {
   justify-content: center;
   gap: 10px;
   font-size: 20px;
-  background-color: #aaa;
+  height: 40px;
+  background-color: #98bf0c;
 }
 
 .card-price p {
-  color: #000;
+  color: #fff;
   font-style: italic;
 }
 
@@ -496,6 +504,7 @@ img.avatar {
     top: 0;
     left: 0;
     height: 100vh;
+    min-width: 200px;
   }
 
   /* Home style Mobile */
@@ -556,4 +565,8 @@ img.avatar {
     width: 0;
     height: 0;
   }
+}
+
+.hideBack {
+  display: none;
 }

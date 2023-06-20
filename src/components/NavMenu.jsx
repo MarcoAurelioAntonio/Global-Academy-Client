@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,6 +11,7 @@ import global from '../assets/images/global.png';
 
 const NavMenu = ({ bgColor, isBacking, isHide }) => {
   const location = useLocation();
+  const history = useNavigate();
   const [isOpen, setIsOpen] = useState(!isHide);
   if (!isOpen) {
     return (
@@ -24,31 +25,33 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
     );
   }
   return (
-    <div className="nav-container bg-white border h-screen flex flex-col py-40 w-2/6 max-w-fit">
+    <div className="nav-container">
       <div className="imgcontainer">
         <img className="avatar" src={global} alt="Logo" />
       </div>
-      <div className={`nav_item ${location.pathname === '/' && 'active'}`}>
-        <NavLink to="/">COURSES</NavLink>
-      </div>
-      <div className={`nav_item ${location.pathname === '/add-reservation' && 'active'}`}>
-        <NavLink to="/add-reservation">ENROLL</NavLink>
-      </div>
-      <div className={`nav_item ${location.pathname === '/all_user_reservations' && 'active'}`}>
-        <NavLink to="/all_user_reservations">MY ENROLLMENTS</NavLink>
-      </div>
-      <div className={`nav_item ${location.pathname === '/add_course' && 'active'}`}>
-        <NavLink to="/add_course">ADD COURSE</NavLink>
-      </div>
-      <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
-        <NavLink to="/delete_course">DELETE COURSE</NavLink>
+      <div>
+        <div className={`nav_item ${(location.pathname === '/' && 'active') || 'notActive'}`}>
+          <NavLink to="/">COURSES</NavLink>
+        </div>
+        <div className={`nav_item ${(location.pathname === '/add-reservation' && 'active') || 'notActive'}`}>
+          <NavLink to="/add-reservation">ENROLL</NavLink>
+        </div>
+        <div className={`nav_item ${(location.pathname === '/all_user_reservations' && 'active') || 'notActive'}`}>
+          <NavLink to="/all_user_reservations">MY ENROLLMENTS</NavLink>
+        </div>
+        <div className={`nav_item ${(location.pathname === '/add_course' && 'active') || 'notActive'}`}>
+          <NavLink to="/add_course">ADD COURSE</NavLink>
+        </div>
+        <div className={`nav_item ${(location.pathname === '/delete_course' && 'active') || 'notActive'}`}>
+          <NavLink to="/delete_course">DELETE COURSE</NavLink>
+        </div>
       </div>
       {
         isBacking ? (
           <button
             type="button"
             className="close-btn"
-            onClick={() => setIsOpen(false)}
+            onClick={() => history(-1)}
           >
             <span className="material-symbols-outlined back-btn">
               arrow_left
