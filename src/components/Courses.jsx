@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-material-ui-carousel';
 import Course from './Course';
+import arrowNext from '../assets/images/carousel-arrow-left.png';
+import arrowBack from '../assets/images/carousel-arrow-rigth.png';
 
 const Courses = ({ courses }) => {
   let itemsPushed = [];
@@ -43,13 +45,23 @@ const Courses = ({ courses }) => {
   return (
     <>
       {
-        windowWidth >= 640 ? (
+        windowWidth >= 1000 ? (
           <Carousel
             animation="slide"
             indicators
             autoPlay={false}
             navButtonsAlwaysVisible
             cycleNavigation={false}
+            navButtonsProps={{
+              style: {
+                backgroundColor: 'transparent',
+                borderRadius: 0,
+                padding: 0,
+                margin: 0,
+              },
+            }}
+            NextIcon={<img className="carousel-icon" src={arrowNext} alt="next-arrow" />}
+            PrevIcon={<img className="carousel-icon" src={arrowBack} alt="back-arrow" />}
             className="carousel-courses"
           >
             {finalItems.map((item, i) => (

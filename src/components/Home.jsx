@@ -27,6 +27,7 @@ const Home = () => {
         <div className="over-wrapper">
           <h1 className="home-title">LATEST COURSES</h1>
           <h5>Please select a course</h5>
+          <div className="separator">. . . . . . . . . . .</div>
         </div>
         {
           courses.length === 0 ? (

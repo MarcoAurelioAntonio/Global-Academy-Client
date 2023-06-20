@@ -20,6 +20,7 @@ const AddCourse = () => {
   const formStatus = useSelector((store) => store.courses.status);
   const nameError = 'Course name already exists, please choose another';
 
+  const [imagePicker, setImagePicker] = useState(null);
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -37,6 +38,7 @@ const AddCourse = () => {
   }, [formStatus, history]);
 
   const handleSubmit = (requestForm) => {
+    console.log(requestForm);
     dispatch(postApiCourseForm(requestForm));
 
     setIsLoading(true);
@@ -44,7 +46,6 @@ const AddCourse = () => {
 
   const validateForm = (values) => {
     const errors = {};
-    console.log(values);
     if (!values.name || values.name.length < 3) {
       errors.name = 'Name is required ir must be at least 3 characters long';
     }
@@ -68,8 +69,10 @@ const AddCourse = () => {
     if (!values.price || values.price < 0) {
       errors.price = 'Price is required or must be a positive number';
     }
-    if (!values.image) {
-      errors.iamge = 'You must choose an image';
+    if (imagePicker === null) {
+      errors.image = 'You must choose an image';
+    } else {
+      console.log(values);
     }
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
@@ -85,6 +88,14 @@ const AddCourse = () => {
     return errors;
   };
 
+  const handleImageChange = (e, setFieldValue) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFieldValue('image', file);
+      setImagePicker(file);
+    }
+  };
+
   const initialValues = {
     name: '',
     start_date: '',
@@ -92,7 +103,7 @@ const AddCourse = () => {
     description: '',
     course_type: '',
     price: '',
-    image: null,
+    image: '',
   };
 
   return (
@@ -206,12 +217,17 @@ const AddCourse = () => {
                 Image:
                 <span className="form-label-required">*</span>
               </label>
-              <Field
-                type="file"
-                id="image"
-                name="image"
-                className="form-input"
-              />
+              <Field name="image" className="form-input">
+                {({ field, form }) => (
+                  <div>
+                    <input
+                      id="image"
+                      type="file"
+                      onChange={(e) => handleImageChange(e, form.setFieldValue, field.value)}
+                    />
+                  </div>
+                )}
+              </Field>
               <ErrorMessage name="image" component="div" className="form-error" />
             </div>
 

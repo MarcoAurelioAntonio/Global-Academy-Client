@@ -17,7 +17,20 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
 export const postApiCourseForm = createAsyncThunk(
   'courses/postApiCourseForm',
   async (requestForm) => {
-    const postFormToData = await axios.post('http://localhost:3000/api/v1/courses', requestForm);
+    const formData = new FormData();
+    formData.append('course[name]', requestForm.name);
+    formData.append('course[course_type]', requestForm.course_type);
+    formData.append('course[description]', requestForm.description);
+    formData.append('course[image]', requestForm.image);
+    formData.append('course[start_date]', requestForm.start_date);
+    formData.append('course[end_date]', requestForm.end_date);
+    formData.append('course[price]', requestForm.price);
+
+    const postFormToData = await axios.post('http://localhost:3000/api/v1/courses', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     // console.log(postFormToData.data);
     return postFormToData.data;
   },
