@@ -15,7 +15,7 @@ const Course = ({ data }) => {
   return (
     <Link className="course-item" to={`/courses/${data.id}`} state={data}>
       <div className="image-container">
-        <img className="course-image" src={data.image_url} alt="Course-img" />
+        <img className="course-image-nelson" src={data.image_url} alt="Course-img" />
       </div>
       <p className="course-title">{ data.name }</p>
       <div className="separator">. . . . . . . . . . .</div>

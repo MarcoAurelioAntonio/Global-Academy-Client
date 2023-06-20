@@ -84,7 +84,7 @@ const AddReservation = () => {
             </label>
             <br />
             <button
-              className="enroll-btn"
+              className="enroll-btn-ken"
               type="submit"
               disabled={status === 'loading' && true}
             >

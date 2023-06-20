@@ -45,6 +45,10 @@ code {
     monospace;
 }
 
+.delete-course {
+  overflow-y: scroll;
+}
+
 /* stylelint-disable */
 @layer components {
   .nav_item {

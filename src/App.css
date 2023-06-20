@@ -147,7 +147,7 @@ img.carousel-icon {
   border-radius: 50%;
 }
 
-img.course-image {
+img.course-image-nelson {
   width: 96%;
   height: 96%;
   border-radius: 50%;
@@ -216,7 +216,15 @@ p.course-label {
 }
 
 .nav-container {
+  min-width: 200px;
+  max-width: 220px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 0;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 .close-btn {
@@ -244,7 +252,7 @@ p.course-label {
 .burger-button {
   width: 40px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,6 +408,16 @@ img.avatar {
   background-color: #98bf0c;
 }
 
+.enroll-btn-ken {
+  background-color: white;
+  color: #98bf0c;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
 /* ==================== Enrollment ends ======================= */
 
 /* ==================== Reservation Component starts ======================= */
@@ -487,6 +505,7 @@ img.avatar {
     top: 0;
     left: 0;
     height: 100vh;
+    min-width: 200px;
   }
 
   /* Home style Mobile */
