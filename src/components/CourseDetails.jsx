@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseById } from '../redux/coursesSlice';
+import NavMenu from './NavMenu';
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -14,31 +15,17 @@ const CourseDetails = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 ">
-      <nav className="flex">
-        <ul className="flex flex-row md:flex-col space-x-8 ">
-          <li>
-            <a href="/courses" className="text-blue-500 hover:text-blue-800">
-              Courses
-            </a>
-          </li>
-          <li>
-            <a href="/courses" className="text-blue-500 hover:text-blue-800">
-              Courses
-            </a>
-          </li>
-          <li>
-            <a href="/courses" className="text-blue-500 hover:text-blue-800">
-              Courses
-            </a>
-          </li>
-          <li>
-            <a href="/courses" className="text-blue-500 hover:text-blue-800">
-              Courses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div className="flex flex-col items-center md:flex-row flex-shrink gap-12">
+     
+      <NavMenu bgColor="" isHide />
+      <div className='flex flex-col justify-start items-start '>
+      <button className='px-4'>
+        <Link to="/">
+        <span class="material-symbols-outlined">
+arrow_back
+</span>
+        </Link>
+      </button>
+      <div className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12">
         <img
           className="course-image"
           width="50%"
@@ -89,6 +76,10 @@ const CourseDetails = () => {
           </Link>
         </div>
       </div>
+      </div>
+   
+    
+   
     </div>
   );
 };

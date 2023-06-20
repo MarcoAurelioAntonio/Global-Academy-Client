@@ -294,6 +294,7 @@ img.avatar {
 
 .hamburger.green {
   background: #98bf0c;
+  border-radius: 20%;
 }
 
 .enrollment-title {
@@ -331,16 +332,6 @@ img.avatar {
 
 .enroll-container option {
   background-color: #98bf0c;
-}
-
-.enroll-btn {
-  background-color: white;
-  color: #98bf0c;
-  padding: 10px 15px;
-  margin: 8px 0;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 100%;
 }
 
 /* ==================== Enrollment ends ======================= */
@@ -483,4 +474,8 @@ img.avatar {
     width: 0;
     height: 0;
   }
+}
+
+.hideBack {
+  display: none;
 }
