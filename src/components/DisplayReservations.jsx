@@ -26,7 +26,7 @@ const DisplayReservations = () => {
 
   return (
     <div className="flex">
-      <NavMenu bgColor="green" />
+      <NavMenu bgColor="green" isBacking={false} isHide={false} />
       <div className="reservation-container">
         <div className="reservation-list-container">
           {apiStatus === 'loading' && <p>Loading...</p>}

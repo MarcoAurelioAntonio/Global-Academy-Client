@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import global from '../assets/images/global.png';
 
 const NavMenu = ({ bgColor, isBacking, isHide }) => {
   const location = useLocation();
@@ -18,8 +19,11 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
   }
   return (
     <div className="nav-container bg-white border h-screen flex flex-col py-40 w-2/6 max-w-fit">
+      <div className="imgcontainer">
+        <img className="avatar" src={global} alt="Logo" />
+      </div>
       <div className={`nav_item ${location.pathname === '/' && 'active'}`}>
-        <NavLink exact to="/">COURSES</NavLink>
+        <NavLink to="/">COURSES</NavLink>
       </div>
       <div className={`nav_item ${location.pathname === '/add-reservation' && 'active'}`}>
         <NavLink to="/add-reservation">ENROLL</NavLink>

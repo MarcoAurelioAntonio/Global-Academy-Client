@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <section className="home-container">
-      <NavMenu bgColor="green" />
+      <NavMenu bgColor="green" isBacking={false} isHide={false} />
       <div className="home-wrapper">
         <div className="over-wrapper">
           <h1 className="home-title">LATEST COURSES</h1>

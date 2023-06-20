@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getUserFromAPI, postUserToAPI } from '../redux/usersSlice';
+import global from '../assets/images/global.png';
 
 const Login = () => {
   const [inputs, setInputs] = useState({ name: '' });
@@ -34,7 +35,7 @@ const Login = () => {
     <section className="content-login">
       <form onSubmit={handleLoginClick}>
         <div className="imgcontainer">
-          <img className="avatar" src="/images/logo.png" alt="Logo" />
+          <img className="avatar" src={global} alt="Logo" />
         </div>
 
         <div className="container">

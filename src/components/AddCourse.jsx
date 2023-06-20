@@ -44,6 +44,7 @@ const AddCourse = () => {
 
   const validateForm = (values) => {
     const errors = {};
+    console.log(values);
     if (!values.name || values.name.length < 3) {
       errors.name = 'Name is required ir must be at least 3 characters long';
     }
@@ -67,6 +68,9 @@ const AddCourse = () => {
     if (!values.price || values.price < 0) {
       errors.price = 'Price is required or must be a positive number';
     }
+    if (!values.image) {
+      errors.iamge = 'You must choose an image';
+    }
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
     const totalFields = Object.keys(values).length;
@@ -88,11 +92,12 @@ const AddCourse = () => {
     description: '',
     course_type: '',
     price: '',
+    image: null,
   };
 
   return (
     <div className="flex">
-      <NavMenu bgColor="green" />
+      <NavMenu bgColor="green" isHide={false} isBacking={false} />
       <div className="add-course-form-container">
         <h2 className="add-course-form-title">Add Your Course Here</h2>
         <LinearProgress
@@ -194,6 +199,20 @@ const AddCourse = () => {
                 className="form-input"
               />
               <ErrorMessage name="price" component="div" className="form-error" />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="image" className="form-label">
+                Image:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field
+                type="file"
+                id="image"
+                name="image"
+                className="form-input"
+              />
+              <ErrorMessage name="image" component="div" className="form-error" />
             </div>
 
             <button type="submit" className="form-submit-button">Add new course</button>
