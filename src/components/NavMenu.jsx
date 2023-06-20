@@ -65,23 +65,23 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
 
       <div className="footer">
         <div className="social-icons">
-          <a href="dfhjjd" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTwitter} />
             <i className="px-2" />
           </a>
-          <a href="dfghdd" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebookF} />
             <i className="px-2" />
           </a>
-          <a href="dfhdf" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGoogle} />
             <i className="px-2" />
           </a>
-          <a href="dfdg" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faVimeo} />
             <i className="px-2" />
           </a>
-          <a href="dfdh" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MarcoAurelioAntonio/Global-Academy-Client" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faPinterest} />
             <i className="px-2" />
           </a>
