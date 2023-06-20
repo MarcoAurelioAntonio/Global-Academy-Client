@@ -29,19 +29,19 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
         <img className="avatar" src={global} alt="Logo" />
       </div>
       <div>
-        <div className={`nav_item ${location.pathname === '/' && 'active'}`}>
+        <div className={`nav_item ${location.pathname === '/' && 'active' || 'notActive'}`}>
           <NavLink to="/">COURSES</NavLink>
         </div>
-        <div className={`nav_item ${location.pathname === '/add-reservation' && 'active'}`}>
+        <div className={`nav_item ${location.pathname === '/add-reservation' && 'active'  || 'notActive'}`}>
           <NavLink to="/add-reservation">ENROLL</NavLink>
         </div>
-        <div className={`nav_item ${location.pathname === '/all_user_reservations' && 'active'}`}>
+        <div className={`nav_item ${location.pathname === '/all_user_reservations' && 'active'  || 'notActive'}`}>
           <NavLink to="/all_user_reservations">MY ENROLLMENTS</NavLink>
         </div>
-        <div className={`nav_item ${location.pathname === '/add_course' && 'active'}`}>
+        <div className={`nav_item ${location.pathname === '/add_course' && 'active'  || 'notActive'}`}>
           <NavLink to="/add_course">ADD COURSE</NavLink>
         </div>
-        <div className={`nav_item ${location.pathname === '/delete_course' && 'active'}`}>
+        <div className={`nav_item ${location.pathname === '/delete_course' && 'active'  || 'notActive'}`}>
           <NavLink to="/delete_course">DELETE COURSE</NavLink>
         </div>
       </div>

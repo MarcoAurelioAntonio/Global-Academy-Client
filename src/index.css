@@ -52,7 +52,11 @@ code {
 /* stylelint-disable */
 @layer components {
   .nav_item {
-    @apply flex w-11/12 ml-4 justify-start p-2 my-1 text-lg hover:bg-slate-100;
+    @apply flex w-11/12 ml-4 justify-start p-2 my-1 text-lg 
+  }
+
+  .notActive:hover {
+   @apply bg-slate-100;
   }
 
   .active {
