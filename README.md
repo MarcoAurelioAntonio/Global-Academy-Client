@@ -33,8 +33,7 @@
 
 **Appointment-Client-Side React Frontend** 
 
- - Saves a random greeting in the redux store.
- - Shows the greeting in the home page.
+ - In this app, you can book between any of the available courses, and as a user you can not only book, but create - a new one so that others can also enjoy.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -59,10 +58,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[]**
-- **[]**
-- **[]**
-- **[]**
+- **[The user logs in to the website, only by typing the username]**
+- **[The user can book a desired course]**
+- **[The app is responsive in Mobile, Tablet and Desktop versions]**
+- **[When the user clicks the "Delete" button, the selected item is marked as removed and does not show on the main list anymore]**
+- **[When the user clicks the "My reservations" link in the navigation panel they can see a list of their reservations]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,6 +152,8 @@ After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio
 
 - [ ] **[Add styling]**
 - [ ] **[Add content]**
+- [ ] **[Implement proper user authentication from the front-end to the server]**
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
@@ -179,3 +181,13 @@ Give a ⭐️ if you like this project!
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Credits
+
+- Author: [Murat Korkmaz](https://www.behance.net/muratk)
+- Title: [Vespa - Responsive Redesign](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+- Description: The result should look exactly the same (with exception for titles and images) as in the design provided by Murat Korkmaz on Behance.
+
+The work **Vespa - Responsive Redesign** is used in this project under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. All rights belong to the original author.
+
+If modifications have been made to the original work, they are indicated here.
