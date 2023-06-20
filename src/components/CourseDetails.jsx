@@ -16,15 +16,8 @@ const CourseDetails = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 ">
 
-      <NavMenu bgColor="" isHide />
+      <NavMenu bgColor="" isHide isBacking />
       <div className="flex flex-col justify-start items-start ">
-        <button className="px-4" type="button">
-          <Link to="/">
-            <span className="material-symbols-outlined">
-              arrow_back
-            </span>
-          </Link>
-        </button>
         <div className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12">
           <img
             className="course-image"
