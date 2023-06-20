@@ -1,4 +1,5 @@
 .reservation-container {
+  width: 100%;
   overflow-y: scroll;
   height: 100vh;
   display: flex;
@@ -18,12 +19,6 @@
   padding: 4%;
   background: #fff;
   margin-top: 40px;
-}
-
-@media (max-width: 500px) {
-  .reservation-list-container {
-    width: 90vw;
-  }
 }
 
 .error-message {

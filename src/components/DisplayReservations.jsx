@@ -25,7 +25,7 @@ const DisplayReservations = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="flex">
+    <div className="flex w-screen">
       <NavMenu bgColor="green" />
       <div className="reservation-container">
         <div className="reservation-list-container">
