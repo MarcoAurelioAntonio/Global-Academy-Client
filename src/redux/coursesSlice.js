@@ -5,7 +5,6 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
   new Promise((resolve, reject) => {
     axios.get('http://localhost:3000/api/v1/courses')
       .then(({ data }) => {
-        // console.log(data);
         resolve({ data });
       })
       .catch((error) => {
@@ -16,7 +15,7 @@ export const getAllCoursesApi = createAsyncThunk('games/fetch', () => (
 
 export const postApiCourseForm = createAsyncThunk(
   'courses/postApiCourseForm',
-  async (requestForm) => {
+  async (requestForm, thunkAPI) => {
     const formData = new FormData();
     formData.append('course[name]', requestForm.name);
     formData.append('course[course_type]', requestForm.course_type);
@@ -31,7 +30,7 @@ export const postApiCourseForm = createAsyncThunk(
         'Content-Type': 'multipart/form-data',
       },
     });
-    // console.log(postFormToData.data);
+    thunkAPI.dispatch(getAllCoursesApi());
     return postFormToData.data;
   },
 );
@@ -67,7 +66,6 @@ const coursesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // getAllCoursesApi
       .addCase(getAllCoursesApi.pending, (state) => ({
         ...state, status: 'loading', loading: true, courses: [],
       }))
@@ -82,8 +80,6 @@ const coursesSlice = createSlice({
         error: error.message,
         status: 'failed',
       }))
-
-      // postApiCourseForm
       .addCase(postApiCourseForm.pending, (state) => ({
         ...state, status: 'loading', courses: [],
       }))

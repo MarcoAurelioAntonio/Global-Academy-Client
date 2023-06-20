@@ -1,0 +1,33 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #666;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #333;
+  text-decoration: none;
+}
+
+.text {
+  color: #333;
+  font-size: 14px;
+}
