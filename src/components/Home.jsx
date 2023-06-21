@@ -9,12 +9,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if(courses.length === 0) return;
     dispatch(getAllCoursesApi());
   }, []);
 
   return (
     <section className="home-container">
-      <NavMenu bgColor="green" isBacking={false} isHide={false} />
       {
         loading && <p>Loading...</p>
       }

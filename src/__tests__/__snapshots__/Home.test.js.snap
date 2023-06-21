@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <Home /> component Should match the snapshot 1`] = `
+<section
+  className="home-container"
+>
+  <div
+    className="home-wrapper"
+  >
+    <div
+      className="over-wrapper"
+    >
+      <h1
+        className="home-title"
+      >
+        LATEST COURSES
+      </h1>
+      <h5>
+        Please select a course
+      </h5>
+      <div
+        className="separator"
+      >
+        . . . . . . . . . . .
+      </div>
+    </div>
+    <div
+      className="carousel-courses css-ohwg9z"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        className="css-1f8sh1y"
+        style={
+          Object {
+            "height": undefined,
+          }
+        }
+      >
+        <div
+          className="css-1l7c0cy"
+        >
+          <div
+            draggable={false}
+            style={
+              Object {
+                "WebkitTouchCallout": "none",
+                "WebkitUserSelect": "none",
+                "height": "100%",
+                "touchAction": "pan-y",
+                "userSelect": "none",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "height": "100%",
+                  "position": "relative",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "height": undefined,
+                  }
+                }
+              >
+                <div
+                  className="course-group"
+                  data-testid="courses-item"
+                >
+                  <a
+                    className="course-item"
+                    href="/courses/9"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="image-container"
+                    >
+                      <img
+                        alt="Course-img"
+                        className="course-image-nelson"
+                        src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b4fee963a3f0b6b5be716592d385e19264fa88ca/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+                      />
+                    </div>
+                    <p
+                      className="course-title"
+                      data-testid="name-9"
+                    >
+                      Nelson asdadsasdasdads
+                    </p>
+                    <div
+                      className="separator"
+                    >
+                      . . . . . . . . . . .
+                    </div>
+                    <p
+                      className="course-label"
+                    >
+                      dsadasdasdasdasdasdadsasdasdasdasddas
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Course-Type: asdads
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Price: 20.0 $
+                    </p>
+                    <div
+                      className="course-duration"
+                    >
+                      <p
+                        className="course-price"
+                      >
+                        Duration: 0 hours
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    className="course-item"
+                    href="/courses/10"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="image-container"
+                    >
+                      <img
+                        alt="Course-img"
+                        className="course-image-nelson"
+                        src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e03ef93d475cce1f32c6ec7858b45fb6bcd17fb5/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20Max%20-%202023-06-16%20at%2018.28.01.png"
+                      />
+                    </div>
+                    <p
+                      className="course-title"
+                      data-testid="name-10"
+                    >
+                      THis is new from zoom
+                    </p>
+                    <div
+                      className="separator"
+                    >
+                      . . . . . . . . . . .
+                    </div>
+                    <p
+                      className="course-label"
+                    >
+                      This is a test from the last meeting
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Course-Type: Biology
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Price: 45.0 $
+                    </p>
+                    <div
+                      className="course-duration"
+                    >
+                      <p
+                        className="course-price"
+                      >
+                        Duration: 0 hours
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    className="course-item"
+                    href="/courses/11"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="image-container"
+                    >
+                      <img
+                        alt="Course-img"
+                        className="course-image-nelson"
+                        src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--232f32bad1eac6bebb8856b40864e32215de0447/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+                      />
+                    </div>
+                    <p
+                      className="course-title"
+                      data-testid="name-11"
+                    >
+                      Last test
+                    </p>
+                    <div
+                      className="separator"
+                    >
+                      . . . . . . . . . . .
+                    </div>
+                    <p
+                      className="course-label"
+                    >
+                      This is a description asdadsasd
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Course-Type: Computing
+                    </p>
+                    <p
+                      className="course-price"
+                    >
+                      Price: 45.0 $
+                    </p>
+                    <div
+                      className="course-duration"
+                    >
+                      <p
+                        className="course-price"
+                      >
+                        Duration: 0 hours
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className=" css-1m9128y"
+        style={Object {}}
+      >
+        <button
+          aria-label="carousel indicator 1"
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium   css-8ucetn-MuiButtonBase-root-MuiIconButton-root"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={Object {}}
+          tabIndex={0}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-aq8pb7-MuiSvgIcon-root"
+            data-testid="FiberManualRecordIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="8"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;
