@@ -38,7 +38,7 @@ const AddCourse = () => {
   }, [formStatus, history]);
 
   const handleSubmit = (requestForm) => {
-    console.log(requestForm);
+    // console.log(requestForm);
     dispatch(postApiCourseForm(requestForm));
 
     setIsLoading(true);
@@ -72,7 +72,7 @@ const AddCourse = () => {
     if (imagePicker === null) {
       errors.image = 'You must choose an image';
     } else {
-      console.log(values);
+      // console.log(values);
     }
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
@@ -223,6 +223,7 @@ const AddCourse = () => {
                     <input
                       id="image"
                       type="file"
+                      className="form-input"
                       onChange={(e) => handleImageChange(e, form.setFieldValue, field.value)}
                     />
                   </div>
