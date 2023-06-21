@@ -25,8 +25,8 @@ const DeleteCourse = () => {
 
   return (
     <div className="flex">
-      <NavMenu bgColor="green" />
-      <div className="delete-course flex flex-col items-center mt-10 h-screen">
+      <NavMenu bgColor="green" isHide={false} isBacking={false} />
+      <div className="delete-course flex flex-col items-center mt-10 h-screen w-screen">
         {isDeleted ? (
           <h1 className="text-center text-medium text-red-500 mb-5">
             Course Deleted Successfully.
@@ -36,7 +36,7 @@ const DeleteCourse = () => {
         {loading ? (
           <h1 className="text-center text-2xl text-green-500">Loading...</h1>
         ) : (
-          <div className="flex overflow-x-auto shadow-md sm:rounded-lg  md:w-3/5">
+          <div className="flex shadow-md sm:rounded-lg  md:w-3/5">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 justify-center ">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

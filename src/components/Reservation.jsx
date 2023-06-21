@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Reservation = ({ reservation }) => (
   <div className="card">
-    <img className="card-img" src="/images/course-1.jpg" alt="Avatar" />
+    <img className="card-img" src={reservation.course.image_url} alt="Avatar" />
     <div className="container">
       <p className="course-name">{reservation.course.name}</p>
       <div className="course-info">
@@ -14,7 +14,7 @@ const Reservation = ({ reservation }) => (
         <p>End date :</p>
         <span>{reservation.course.end_date}</span>
       </div>
-      <div className="course-info">
+      <div className="card-price">
         <p>Price :</p>
         <span>{`$ ${reservation.course.price}`}</span>
       </div>

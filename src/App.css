@@ -62,26 +62,26 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  gap: 20px;
+  gap: 0;
 }
 
 .home-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
-  justify-content: center;
+  height: 100vh;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  overflow: scroll;
 }
 
 .over-wrapper {
-  position: absolute;
-  bottom: 120%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 40px;
 }
 
 .home-title {
@@ -93,11 +93,16 @@
 
 .carousel-courses {
   width: 100%;
-  height: 300px;
+  height: 500px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+img.carousel-icon {
+  width: 80px;
 }
 
 .course-group {
@@ -106,25 +111,86 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 20px;
+  gap: 40px;
+  padding: 0 70px;
+  box-sizing: border-box;
 }
 
 .course-item {
-  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  width: 30%;
+  width: 28%;
   max-width: 400px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+  justify-content: center;
+  height: auto;
+  align-items: center;
+  transition: all 250ms ease-in-out;
+}
+
+.course-item:hover {
+  background: #67676718;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.image-container {
+  width: 180px;
+  height: 180px;
+  background: #98bf0c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-radius: 50%;
+}
+
+img.course-image-nelson {
+  width: 96%;
+  height: 96%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .course-item p {
   font-size: 1rem;
-  font-family: 'Poppins-Regular', sans-serif;
+  font-family: 'Poppins-Medium', sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  color: #919191;
+}
+
+p.course-title {
+  font-family: 'Poppins-Black', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 28px;
+  color: #282c34;
+}
+
+.separator {
+  font-size: 36px;
+  overflow: hidden;
+  letter-spacing: -6px;
+  text-align: center;
+  width: 100%;
+  line-height: 26px;
+  padding: 10px;
+  color: #c1c1c1;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+p.course-label {
+  color: #919191;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .mobile-courses {
@@ -150,14 +216,23 @@
 }
 
 .nav-container {
+  min-width: 200px;
+  max-width: 220px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background: white;
 }
 
 .close-btn {
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: 42px;
   right: -70px;
   width: 70px;
   height: 60px;
@@ -178,7 +253,7 @@
 .burger-button {
   width: 40px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -294,6 +369,7 @@ img.avatar {
 
 .hamburger.green {
   background: #98bf0c;
+  border-radius: 20%;
 }
 
 .enrollment-title {
@@ -333,7 +409,7 @@ img.avatar {
   background-color: #98bf0c;
 }
 
-.enroll-btn {
+.enroll-btn-ken {
   background-color: white;
   color: #98bf0c;
   padding: 10px 15px;
@@ -353,60 +429,88 @@ img.avatar {
   height: 350px;
   max-width: 300px;
   border-radius: 5px;
-}
-
-.course-name {
-  font-size: 0.9rem;
-  font-weight: bold;
-  white-space: nowrap;
+  background-color: #f9f9f9;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 290px;
-}
-
-.course-info {
-  font-size: 0.8rem;
   display: flex;
-  height: 25px;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.course-info p {
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.course-name {
+  margin-bottom: 5px;
+  margin-left: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: darkgreen;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.course-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}
+
+.course-info p {
+  margin-right: 5px;
+  font-weight: bold;
+  color: #666;
+}
+
+.course-info span {
+  color: #333;
+}
+
+.card-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  height: 40px;
+  background-color: #98bf0c;
+}
+
+.card-price p {
+  color: #fff;
+  font-style: italic;
+}
+
+.card-price span {
+  color: #fff;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card-img {
-  width: 100%;
-  height: 200px;
-  border-radius: 5px 5px 0 0;
-}
-
-.container {
-  padding: 1px 10px;
-}
-
 /* ==================== Reservation Component ends ======================= */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .nav-container {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
     height: 100vh;
+    min-width: 200px;
   }
-}
 
-@media screen and (max-width: 640px) {
   /* Home style Mobile */
   .home-wrapper {
     overflow-y: scroll;
-    height: auto;
+    height: 100vh;
     display: block;
     box-sizing: border-box;
     padding: 20px;
@@ -418,7 +522,9 @@ img.avatar {
   }
 
   .course-item {
-    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #c1c1c1;
+    width: 80%;
   }
 
   /* Login Mobile */
@@ -440,6 +546,13 @@ img.avatar {
   }
 }
 
+@media screen and (max-width: 425px) {
+  .image-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+
 /* hide after 5 seconds */
 .hide {
   animation: hideAnimation 0s ease-in 5s;
@@ -452,4 +565,8 @@ img.avatar {
     width: 0;
     height: 0;
   }
+}
+
+.hideBack {
+  display: none;
 }
