@@ -30,7 +30,7 @@ const AddReservation = () => {
 
   return (
     <div className="flex">
-      <NavMenu bgColor="gray" isHide />
+      <NavMenu bgColor="gray" isHide isBacking={false} />
       <section className="enrollment-content">
 
         <div className="enrollment-title">
@@ -84,7 +84,7 @@ const AddReservation = () => {
             </label>
             <br />
             <button
-              className="enroll-btn"
+              className="enroll-btn-ken"
               type="submit"
               disabled={status === 'loading' && true}
             >

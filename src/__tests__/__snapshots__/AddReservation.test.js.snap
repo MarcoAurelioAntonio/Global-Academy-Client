@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should display 1 button on the screen 1`] = `
+Object {
+  "courses": Object {
+    "course": Object {},
+    "courses": Array [
+      Object {
+        "description": "Lorem ipsu dolor",
+        "id": 1,
+        "name": "Master React",
+      },
+    ],
+    "deleted": false,
+    "error": null,
+    "loading": false,
+    "status": "idle",
+  },
+  "reservations": Object {
+    "enrolled": false,
+    "error": null,
+    "loading": false,
+    "reservations": Array [],
+    "status": "idle",
+    "userId": null,
+  },
+  "users": Object {
+    "current_user": Object {
+      "id": 1,
+      "name": "Teddy",
+    },
+    "error": null,
+    "loading": false,
+    "status": "idle",
+  },
+}
+`;

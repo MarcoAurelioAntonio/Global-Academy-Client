@@ -20,6 +20,7 @@ const AddCourse = () => {
   const formStatus = useSelector((store) => store.courses.status);
   const nameError = 'Course name already exists, please choose another';
 
+  const [imagePicker, setImagePicker] = useState(null);
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -37,6 +38,7 @@ const AddCourse = () => {
   }, [formStatus, history]);
 
   const handleSubmit = (requestForm) => {
+    // console.log(requestForm);
     dispatch(postApiCourseForm(requestForm));
 
     setIsLoading(true);
@@ -67,6 +69,11 @@ const AddCourse = () => {
     if (!values.price || values.price < 0) {
       errors.price = 'Price is required or must be a positive number';
     }
+    if (imagePicker === null) {
+      errors.image = 'You must choose an image';
+    } else {
+      // console.log(values);
+    }
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
     const totalFields = Object.keys(values).length;
@@ -81,6 +88,14 @@ const AddCourse = () => {
     return errors;
   };
 
+  const handleImageChange = (e, setFieldValue) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFieldValue('image', file);
+      setImagePicker(file);
+    }
+  };
+
   const initialValues = {
     name: '',
     start_date: '',
@@ -88,11 +103,12 @@ const AddCourse = () => {
     description: '',
     course_type: '',
     price: '',
+    image: '',
   };
 
   return (
     <div className="flex">
-      <NavMenu bgColor="green" />
+      <NavMenu bgColor="green" isHide={false} isBacking={false} />
       <div className="add-course-form-container">
         <h2 className="add-course-form-title">Add Your Course Here</h2>
         <LinearProgress
@@ -194,6 +210,26 @@ const AddCourse = () => {
                 className="form-input"
               />
               <ErrorMessage name="price" component="div" className="form-error" />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="image" className="form-label">
+                Image:
+                <span className="form-label-required">*</span>
+              </label>
+              <Field name="image" className="form-input">
+                {({ field, form }) => (
+                  <div>
+                    <input
+                      id="image"
+                      type="file"
+                      className="form-input"
+                      onChange={(e) => handleImageChange(e, form.setFieldValue, field.value)}
+                    />
+                  </div>
+                )}
+              </Field>
+              <ErrorMessage name="image" component="div" className="form-error" />
             </div>
 
             <button type="submit" className="form-submit-button">Add new course</button>

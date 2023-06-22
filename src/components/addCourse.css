@@ -108,3 +108,8 @@
   color: #ccc;
   z-index: 10;
 }
+
+#image {
+  background-color: #fff;
+  box-shadow: none;
+}
