@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [This page will not be deployed](https://github.com/MarcoAurelioAntonio/Appointment-Client-Side)
+- This page will not be deployed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -83,8 +83,8 @@ To get a local copy up and running, follow these steps.
 ### Setup <a name="setup"></a>
 Open the terminal and clone the project
 ```
- git clone git@github.com:MarcoAurelioAntonio/Appointment-Client-Side.git
- cd Appointment-Client-Side
+ git clone https://github.com/MarcoAurelioAntonio/Global-Academy-Client.git
+ cd Global-Academy-Client
 ```
 
 ### Install <a name="install"></a>
@@ -106,7 +106,7 @@ To run the project, execute the following command:
 
 ### Deployment
 
-After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio/Appointment-Server-Side), Run Frontend in browser in the port:
+After runing - [Global-Academy-Server](https://github.com/MarcoAurelioAntonio/Global-Academy-Server.git), Run Frontend in browser in the port:
 
 ```
   localhost:3001
@@ -116,12 +116,12 @@ After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio
 
 ## 🚀 Link to Backend <a name="backend"></a>
 
-- [Appointment-Server-Side](https://github.com/MarcoAurelioAntonio/Appointment-Server-Side)
+- [Global-Academy-Server] (https://github.com/MarcoAurelioAntonio/Global-Academy-Server.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Gustavo Porcilio**
 
@@ -151,7 +151,7 @@ After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Add styling]**
+- [ ] **[Manage_Notifications]**
 - [ ] **[Add content]**
 - [ ] **[Implement proper user authentication from the front-end to the server]**
 
@@ -163,7 +163,7 @@ After runing - [Appointment-Server-Side](https://github.com/MMarcoAurelioAntonio
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/MarcoAurelioAntonio/Appointment-Client-Side/issues).
+Feel free to check the [issues page](https://github.com/MarcoAurelioAntonio/Global-Academy-Client/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
