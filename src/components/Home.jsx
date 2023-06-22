@@ -5,16 +5,19 @@ import Courses from './Courses';
 import NavMenu from './NavMenu';
 
 const Home = () => {
-  const { courses, loading } = useSelector((store) => store.courses);
+  const { courses, loading, status } = useSelector((store) => store.courses);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(courses.length === 0) return;
-    dispatch(getAllCoursesApi());
-  }, []);
+    if (status === 'failed') return;
+    if (status === 'idle') {
+      dispatch(getAllCoursesApi());
+    }
+  }, [courses]);
 
   return (
     <section className="home-container">
+      <NavMenu bgColor="green" isBacking={false} isHide={false} />
       {
         loading && <p>Loading...</p>
       }
