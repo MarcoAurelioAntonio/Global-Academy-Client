@@ -116,7 +116,7 @@ After runing - [Global-Academy-Server](https://github.com/MarcoAurelioAntonio/Gl
 
 ## 🚀 Link to Backend <a name="backend"></a>
 
-- [Global-Academy-Server] (https://github.com/MarcoAurelioAntonio/Global-Academy-Server.git)
+- [Global-Academy-Server](https://github.com/MarcoAurelioAntonio/Global-Academy-Server.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
