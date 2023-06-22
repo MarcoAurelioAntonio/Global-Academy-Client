@@ -29,7 +29,7 @@ const DisplayReservations = () => {
       <NavMenu bgColor="green" isBacking={false} isHide={false} />
       <div className="reservation-container">
         <h2 className="course-title">MY COURSES</h2>
-        <div className="reservation-list-container">
+        <div className="reservation-list-container" data-testid="reservations">
           {apiStatus === 'loading' && <p>Loading...</p>}
 
           {apiData.length === 0 && (
