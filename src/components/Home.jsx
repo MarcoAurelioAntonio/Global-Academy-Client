@@ -5,12 +5,15 @@ import Courses from './Courses';
 import NavMenu from './NavMenu';
 
 const Home = () => {
-  const { courses, loading } = useSelector((store) => store.courses);
+  const { courses, loading, status } = useSelector((store) => store.courses);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCoursesApi());
-  }, []);
+    if (status === 'failed') return;
+    if (status === 'idle') {
+      dispatch(getAllCoursesApi());
+    }
+  }, [courses]);
 
   return (
     <section className="home-container">

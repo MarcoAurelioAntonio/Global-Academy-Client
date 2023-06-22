@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <Course /> component Should match the snapshot 1`] = `
+<a
+  className="course-item"
+  href="/courses/9"
+  onClick={[Function]}
+>
+  <div
+    className="image-container"
+  >
+    <img
+      alt="Course-img"
+      className="course-image-nelson"
+      src=""
+    />
+  </div>
+  <p
+    className="course-title"
+    data-testid="name-9"
+  >
+    Nelson asdadsasdasdads
+  </p>
+  <div
+    className="separator"
+  >
+    . . . . . . . . . . .
+  </div>
+  <p
+    className="course-label"
+  >
+    dsadasdasdasdasdasdadsasdasdasdasddas
+  </p>
+  <p
+    className="course-price"
+  >
+    Course-Type: asdads
+  </p>
+  <p
+    className="course-price"
+  >
+    Price: 20.0 $
+  </p>
+  <div
+    className="course-duration"
+  >
+    <p
+      className="course-price"
+    >
+      Duration: 0 hours
+    </p>
+  </div>
+</a>
+`;

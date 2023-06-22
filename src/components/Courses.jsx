@@ -65,7 +65,7 @@ const Courses = ({ courses }) => {
             className="carousel-courses"
           >
             {finalItems.map((item, i) => (
-              <div className="course-group" key={`item-id-${i * 5}`}>
+              <div className="course-group" data-testid="courses-item" key={`item-id-${i * 5}`}>
                 {
                   item.map((item2, j) => (
                     <Course key={`course-id-${j * 5}`} data={item2} />

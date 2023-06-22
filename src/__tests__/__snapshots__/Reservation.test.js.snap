@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <Reservation /> component Should match the snapshot 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="Avatar"
+    className="card-img"
+    src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e2c6f24621c425f569dcfdc5f64d41d7aa1f592/pexels-karolina-grabowska-4497759.jpg"
+  />
+  <div
+    className="container"
+  >
+    <p
+      className="course-name"
+    >
+      Master Data Structures
+    </p>
+    <div
+      className="course-info"
+    >
+      <p>
+        Start date :
+      </p>
+      <span>
+        2023-06-21
+      </span>
+    </div>
+    <div
+      className="course-info"
+    >
+      <p>
+        End date :
+      </p>
+      <span>
+        2023-07-21
+      </span>
+    </div>
+    <div
+      className="card-price"
+    >
+      <p>
+        Price :
+      </p>
+      <span>
+        $ 200.0
+      </span>
+    </div>
+  </div>
+</div>
+`;
