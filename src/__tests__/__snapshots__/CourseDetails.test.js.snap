@@ -2,7 +2,7 @@
 
 exports[`Tests for <CourseDetails /> component Should match the snapshot 1`] = `
 <div
-  className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 "
+  className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 px-10"
 >
   <button
     className="burger-button"
@@ -16,19 +16,23 @@ exports[`Tests for <CourseDetails /> component Should match the snapshot 1`] = `
     </span>
   </button>
   <div
-    className="flex flex-col justify-start items-start "
+    className="flex flex-col justify-start items-start w-full"
   >
     <div
-      className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12"
+      className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12 w-full md:items-start"
     >
-      <img
-        className="course-image"
-        height="50%"
-        src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e2c6f24621c425f569dcfdc5f64d41d7aa1f592/pexels-karolina-grabowska-4497759.jpg"
-        width="50%"
-      />
       <div
-        className="flex flex-col md:w-2/5"
+        className="flex flex-col w-1/2 ml-8"
+      >
+        <img
+          className="course-image"
+          height="50%"
+          src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e2c6f24621c425f569dcfdc5f64d41d7aa1f592/pexels-karolina-grabowska-4497759.jpg"
+          width="100%"
+        />
+      </div>
+      <div
+        className="w-full px-5 flex flex-col md:w-1/2"
       >
         <h1
           className="text-4xl text-end"

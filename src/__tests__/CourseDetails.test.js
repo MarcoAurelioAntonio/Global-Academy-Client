@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import CourseDetails from '../components/CourseDetails';
 import { getCourseById } from '../redux/coursesSlice';
+
 describe('Tests for <CourseDetails /> component', () => {
   const mockStore = configureStore([thunk]);
   const user = {

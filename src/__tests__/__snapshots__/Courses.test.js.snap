@@ -61,7 +61,7 @@ exports[`Tests for <Courses /> component Should match the snapshot 1`] = `
                   <img
                     alt="Course-img"
                     className="course-image-nelson"
-                    src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b4fee963a3f0b6b5be716592d385e19264fa88ca/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+                    src=""
                   />
                 </div>
                 <p
@@ -111,7 +111,7 @@ exports[`Tests for <Courses /> component Should match the snapshot 1`] = `
                   <img
                     alt="Course-img"
                     className="course-image-nelson"
-                    src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e03ef93d475cce1f32c6ec7858b45fb6bcd17fb5/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20Max%20-%202023-06-16%20at%2018.28.01.png"
+                    src=""
                   />
                 </div>
                 <p
@@ -161,7 +161,7 @@ exports[`Tests for <Courses /> component Should match the snapshot 1`] = `
                   <img
                     alt="Course-img"
                     className="course-image-nelson"
-                    src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--232f32bad1eac6bebb8856b40864e32215de0447/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+                    src=""
                   />
                 </div>
                 <p

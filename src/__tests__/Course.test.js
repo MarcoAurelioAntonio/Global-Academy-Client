@@ -5,29 +5,31 @@ import { BrowserRouter } from 'react-router-dom';
 import Course from '../components/Course';
 
 describe('Tests for <Course /> component', () => {
-
   const courseItem = {
-    "id": 9,
-    "name": "Nelson asdadsasdasdads",
-    "description": "dsadasdasdasdasdasdadsasdasdasdasddas",
-    "start_date": "2023-06-21",
-    "end_date": "2023-06-24",
-    "price": "20.0",
-    "course_type": "asdads",
-    "image_url": "http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b4fee963a3f0b6b5be716592d385e19264fa88ca/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+    id: 9,
+    name: 'Nelson asdadsasdasdads',
+    description: 'dsadasdasdasdasdasdadsasdasdasdasddas',
+    start_date: '2023-06-21',
+    end_date: '2023-06-24',
+    price: '20.0',
+    course_type: 'asdads',
+    image_url: '',
   };
 
   it('In the Course screen should be displayed the name of the course', () => {
     render(
       <BrowserRouter>
-        <Course data={courseItem} />,
-      </BrowserRouter>
+        <Course data={courseItem} />
+        ,
+      </BrowserRouter>,
     );
     const element = screen.getByText(courseItem.name);
     expect(element.textContent).toBe(courseItem.name);
-  })
+  });
 
   it('Should match the snapshot', () => {
-    expect(renderer.create(<BrowserRouter><Course data={courseItem} /></BrowserRouter>,).toJSON()).toMatchSnapshot();
+    expect(renderer.create(
+      <BrowserRouter><Course data={courseItem} /></BrowserRouter>,
+    ).toJSON()).toMatchSnapshot();
   });
 });

@@ -12,7 +12,7 @@ exports[`Tests for <Course /> component Should match the snapshot 1`] = `
     <img
       alt="Course-img"
       className="course-image-nelson"
-      src="http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b4fee963a3f0b6b5be716592d385e19264fa88ca/Screenshot%202023-06-20%20at%2012.44.39%20PM.png"
+      src=""
     />
   </div>
   <p
