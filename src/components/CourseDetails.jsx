@@ -14,19 +14,22 @@ const CourseDetails = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 md:mr-16 ">
+    <div className="flex flex-col md:flex-row justify-between my-16 h-screen gap-12 px-10">
 
       <NavMenu bgColor="" isHide isBacking />
-      <div className="flex flex-col justify-start items-start ">
-        <div className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12">
-          <img
-            className="course-image"
-            width="50%"
-            height="50%"
-            src={course.image_url}
-            alt={course.title}
-          />
-          <div className="flex flex-col md:w-2/5">
+      <div className="flex flex-col justify-start items-start w-full">
+        <div className="flex flex-col items-center justify-center md:flex-row flex-shrink gap-12 w-full md:items-start">
+          <div className="flex flex-col w-1/2 ml-8">
+            <img
+              className="course-image"
+              width="100%"
+              height="50%"
+              src={course.image_url}
+              alt={course.title}
+            />
+          </div>
+
+          <div className="w-full px-5 flex flex-col md:w-1/2">
             <h1 className="text-4xl text-end">{course.name}</h1>
             <p className="text-end">{course.description}</p>
             <ul className="mt-4">
