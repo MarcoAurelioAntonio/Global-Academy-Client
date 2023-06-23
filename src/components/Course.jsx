@@ -10,7 +10,7 @@ const Course = ({ data }) => {
     const date2 = new Date(data.end_date);
     const durationInMilliseconds = Math.abs(date2 - date1);
     setDuration(Math.floor((durationInMilliseconds / (3600000))));
-  }, []);
+  }, [data.end_date, data.start_date]);
 
   return (
     <Link className="course-item" to={`/courses/${data.id}`} state={data}>
