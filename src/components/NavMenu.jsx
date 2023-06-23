@@ -7,12 +7,16 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import './navMenuFooter.css';
+import { useDispatch } from 'react-redux';
 import global from '../assets/images/global.png';
+import { logout } from '../redux/usersSlice';
 
 const NavMenu = ({ bgColor, isBacking, isHide }) => {
   const location = useLocation();
   const history = useNavigate();
   const [isOpen, setIsOpen] = useState(!isHide);
+  const dispatch = useDispatch();
+
   if (!isOpen) {
     return (
       <button className="burger-button" type="button" onClick={() => setIsOpen(true)}>
@@ -26,6 +30,26 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
   }
   return (
     <div className="nav-container">
+      <button
+        type="button"
+        className="logout-btn"
+        onClick={() => dispatch(logout())}
+      >
+        <span className="material-symbols-outlined close-menu-icon">
+          logout
+        </span>
+      </button>
+
+      <button
+        type="button"
+        className="close-menu"
+        onClick={() => setIsOpen(false)}
+      >
+        <span className="material-symbols-outlined close-menu-icon">
+          close
+        </span>
+      </button>
+
       <div className="imgcontainer">
         <img className="avatar" src={global} alt="Logo" />
       </div>

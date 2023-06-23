@@ -1,6 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// Initial state
+const initialState = {
+  current_user: null,
+  status: 'idle',
+  loading: false,
+  error: null,
+};
+
 export const postUserToAPI = createAsyncThunk(
   'users/postUserToAPI',
   async (data, thunkAPI) => {
@@ -33,13 +41,10 @@ export const getUserFromAPI = createAsyncThunk(
 
 const usersSlice = createSlice({
   name: 'users',
-  initialState: {
-    current_user: null,
-    status: 'idle',
-    loading: false,
-    error: null,
+  initialState,
+  reducers: {
+    logout: () => initialState,
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(postUserToAPI.pending, (state) => ({
@@ -74,5 +79,6 @@ const usersSlice = createSlice({
       }));
   },
 });
-
+// Export the actions
+export const { logout } = usersSlice.actions;
 export default usersSlice.reducer;
