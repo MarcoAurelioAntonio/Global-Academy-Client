@@ -28,12 +28,16 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
       </button>
     );
   }
+  const handleLogout = () => {
+    dispatch(logout());
+    history('/');
+  };
   return (
     <div className="nav-container">
       <button
         type="button"
         className="logout-btn"
-        onClick={() => dispatch(logout())}
+        onClick={handleLogout}
       >
         <span className="material-symbols-outlined close-menu-icon">
           logout
