@@ -229,6 +229,28 @@ p.course-label {
   border-right: 1px solid #d6d6d6;
 }
 
+.close-menu {
+  position: absolute;
+  top: 15px;
+  right: -10px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.close-menu-icon {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #98bf0c;
+}
+
 .close-btn {
   display: flex;
   align-items: center;

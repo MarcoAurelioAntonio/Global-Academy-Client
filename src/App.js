@@ -49,28 +49,26 @@ const router = createBrowserRouter([
       },
       {
         path: '/add_course',
-        element: <AddCourse />,
+        element: <RouteProtection><AddCourse /></RouteProtection>,
       },
       {
         path: '/delete_course',
-        element: <DeleteCourse />,
+        element: <RouteProtection><DeleteCourse /></RouteProtection>,
       },
       {
         path: '/home',
-        element: <Home />,
+        element: <RouteProtection><Home /></RouteProtection>,
       },
     ],
   },
 ]);
 
-function App() {
-  return (
-    <main className="main-app">
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </main>
-  );
-}
+const App = () => (
+  <main className="main-app">
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </main>
+);
 
 export default App;

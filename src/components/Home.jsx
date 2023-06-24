@@ -13,7 +13,7 @@ const Home = () => {
     if (status === 'idle') {
       dispatch(getAllCoursesApi());
     }
-  }, [courses]);
+  }, [courses, dispatch, status]);
 
   return (
     <section className="home-container">
