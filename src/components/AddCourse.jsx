@@ -45,6 +45,58 @@ const AddCourse = () => {
 
   const validateForm = (values) => {
     const errors = {};
+
+    const errorMessages = {
+      name: {
+        validate: (value) => !value || value.length < 3,
+        message: 'Name is required or must be at least 3 characters long',
+      },
+      start_date: {
+        validate: (value) => {
+          const startDate = new Date(value);
+          return !startDate || startDate < new Date();
+        },
+        message: 'Start date is required or must be greater than today',
+      },
+      end_date: {
+        validate: (value, values) => {
+          const startDate = new Date(values.start_date);
+          const endDate = new Date(value);
+          return !endDate || endDate < startDate;
+        },
+        message: 'End date is required or must be greater than start date',
+      },
+      description: {
+        validate: (value) => !value || value.length < 30,
+        message: 'Description is required or must be at least 30 characters long',
+      },
+      course_type: {
+        validate: (value) => !value || value.length < 3,
+        message: 'Course type is required or must be at least 3 characters long',
+      },
+      price: {
+        validate: (value) => (!value || value < 0) && value !== 0,
+        message: 'Price is required or must be a positive number',
+      },
+      image: {
+        validate: () => imagePicker === null,
+        message: 'You must choose an image',
+      },
+    };
+
+    const validateField = (fieldName, value, values) => {
+      const { validate, message } = errorMessages[fieldName];
+      return validate(value, values) ? message : null;
+    };
+
+    Object.keys(errorMessages).forEach((fieldName) => {
+      const errorMessage = validateField(fieldName, values[fieldName], values);
+      if (errorMessage) {
+        errors[fieldName] = errorMessage;
+      }
+    });
+
+    /*
     if (!values.name || values.name.length < 3) {
       errors.name = 'Name is required ir must be at least 3 characters long';
     }
@@ -71,6 +123,7 @@ const AddCourse = () => {
     if (imagePicker === null) {
       errors.image = 'You must choose an image';
     }
+    */
 
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;

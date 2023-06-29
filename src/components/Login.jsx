@@ -55,7 +55,11 @@ const Login = () => {
           <section className="msg-section">
             <p className="error">{error}</p>
           </section>
-          <button className="lg-btn" type="submit" disabled={status === 'loading' && true}>
+          <button
+            className="lg-btn"
+            type="submit"
+            disabled={status === 'loading' && true}
+          >
             Login
           </button>
           <button
