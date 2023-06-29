@@ -130,11 +130,7 @@ const AddCourse = () => {
     const totalFields = Object.keys(values).length;
     const newProgress = Math.round((completedFields / totalFields) * 100);
 
-    setProgress(newProgress);
-
-    if (completedFields === 0) {
-      setProgress(0);
-    }
+    setProgress(completedFields === 0 ? 0 : newProgress);
 
     return errors;
   };
