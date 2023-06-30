@@ -12,5 +12,9 @@ const RouteProtection = ({ children }) => {
 export default RouteProtection;
 
 RouteProtection.propTypes = {
-  children: PropTypes.shape().isRequired,
+  children: PropTypes.elementType.isRequired,
 };
+
+/* Al utilizar *** PropTypes.elementType, ***
+aseguras que se pase un COMPONENTE válido como
+hijo en lugar de cualquier otro tipo de nodo React. */

@@ -45,7 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/all_user_reservations',
-        element: <RouteProtection><DisplayReservations /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <DisplayReservations />
+          </RouteProtection>
+        ),
       },
       {
         path: '/add_course',
