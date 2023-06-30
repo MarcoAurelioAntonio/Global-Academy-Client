@@ -19,11 +19,15 @@ const Login = () => {
   const handleLoginClick = (ev) => {
     ev.preventDefault();
     dispatch(getUserFromAPI(inputs.name));
+    const { name } = inputs;
+    localStorage.setItem('name', name);
   };
 
   const handleRegisterClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
+    const { name } = inputs;
+    localStorage.setItem('name', name);
   };
 
   // Redirect if user successfully logged in

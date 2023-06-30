@@ -442,6 +442,13 @@ img.avatar {
   width: 100%;
 }
 
+.user {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* ==================== Enrollment ends ======================= */
 
 /* ==================== Reservation Component starts ======================= */
