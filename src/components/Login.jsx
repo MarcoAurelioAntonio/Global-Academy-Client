@@ -28,7 +28,9 @@ const Login = () => {
 
   // Redirect if user successfully logged in
   if (status === 'succeed') {
-    setTimeout(() => history('/'));
+    setTimeout(() => {
+      history('/');
+    }, 1500);
   }
 
   return (
