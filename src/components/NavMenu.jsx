@@ -44,7 +44,7 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
         </span>
       </button>
 
-      <span className="user">{localStorage.getItem('name')}</span>
+      <span className="user-logued">{localStorage.getItem('name')}</span>
 
       <button
         type="button"

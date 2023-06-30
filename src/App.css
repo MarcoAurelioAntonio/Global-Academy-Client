@@ -350,6 +350,7 @@ img.avatar {
 }
 
 .msg-section {
+  height: 25px;
   padding: 2px;
   text-align: center;
 }
@@ -442,7 +443,7 @@ img.avatar {
   width: 100%;
 }
 
-.user {
+.user-logued {
   text-align: center;
   font-size: 0.8rem;
   font-weight: bold;
