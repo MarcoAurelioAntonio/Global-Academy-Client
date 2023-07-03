@@ -58,8 +58,8 @@ const Courses = ({ courses }) => {
         windowWidth >= 1000 ? (
           <Carousel
             animation="slide"
-            duration={2000}
             indicators
+            autoPlay={false}
             navButtonsAlwaysVisible
             cycleNavigation
             navButtonsProps={{

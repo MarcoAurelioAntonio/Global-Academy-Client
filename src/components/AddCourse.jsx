@@ -96,35 +96,6 @@ const AddCourse = () => {
       }
     });
 
-    /*
-    if (!values.name || values.name.length < 3) {
-      errors.name = 'Name is required ir must be at least 3 characters long';
-    }
-
-    const startDate = new Date(values.start_date);
-    if (!startDate || startDate < new Date()) {
-      errors.start_date = 'Start date is required or must be greater than today';
-    }
-
-    const startDate2 = new Date(values.start_date);
-    const endDate = new Date(values.end_date);
-    if (!endDate || endDate < startDate2) {
-      errors.end_date = 'End date is required or must be greater than start date';
-    }
-    if (!values.description || values.description.length < 30) {
-      errors.description = 'Description is required or must be at least 30 characters long';
-    }
-    if (!values.course_type || values.course_type.length < 3) {
-      errors.course_type = 'Course type is required or must be at least 3 characters long';
-    }
-    if (!values.price || values.price < 0) {
-      errors.price = 'Price is required or must be a positive number';
-    }
-    if (imagePicker === null) {
-      errors.image = 'You must choose an image';
-    }
-    */
-
     // Check how many fields are completed
     const completedFields = Object.values(values).filter((value) => value !== '').length;
     const totalFields = Object.keys(values).length;
