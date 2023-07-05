@@ -13,7 +13,7 @@ const Course = ({ data }) => {
   }, [data.end_date, data.start_date]);
 
   return (
-    <Link className="course-item" to={`/courses/${data.id}`} state={data}>
+    <Link className="course-item" to={`/edit-course/${data.id}`} state={data}>
       <div className="image-container">
         <img className="course-image-nelson" src={data.image_url} alt="Course-img" />
       </div>
