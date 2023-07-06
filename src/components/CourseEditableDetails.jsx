@@ -7,15 +7,19 @@ import {
   Field,
   ErrorMessage,
 } from 'formik';
-import { getCourseById } from '../redux/coursesSlice';
+import { getCourseById, updateCourseById } from '../redux/coursesSlice';
 import NavMenu from './NavMenu';
 import './courseEditableDetails.css';
 
 const CourseEditDetails = () => {
   const { id } = useParams();
   const { course } = useSelector((state) => state.courses);
+  const formError = useSelector((store) => store.courses.error);
+  const formStatus = useSelector((store) => store.courses.status);
+  const nameError = 'Course name already exists, please choose another';
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
+  const [imagePicker, setImagePicker] = useState(null);
 
   useEffect(() => {
     dispatch(getCourseById(id));
@@ -65,12 +69,10 @@ const CourseEditDetails = () => {
         validate: (value) => (!value || value < 0) && value !== 0,
         message: 'Price is required or must be a positive number',
       },
-      /*
       image: {
         validate: () => imagePicker === null,
         message: 'You must choose an image',
       },
-      */
     };
 
     const validateField = (fieldName, value, values) => {
@@ -88,9 +90,22 @@ const CourseEditDetails = () => {
     return errors;
   };
 
-  const handleSubmit = () => {
+  const handleImageChange = (e, setFieldValue) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFieldValue('image', file);
+      setImagePicker(file);
+    }
+  };
+
+  const handleSubmit = (requestForm) => {
+    // console.log(requestForm);
+    dispatch(updateCourseById(requestForm));
     // console.log(values);
     setIsEditing(false);
+    setTimeout(() => {
+      dispatch(getCourseById(id));
+    }, 1000);
   };
 
   return (
@@ -233,7 +248,23 @@ const CourseEditDetails = () => {
 
               {isEditing ? (
                 <>
-                  <button type="submit" onClick={handleSubmit} className="enroll-btn material-symbols-outlined">Save</button>
+                  <p>Change Image</p>
+                  <Field name="image" className="form-input">
+                    {({ field, form }) => (
+                      <div>
+                        <input
+                          id="image"
+                          type="file"
+                          className="form-input"
+                          onChange={(e) => handleImageChange(e, form.setFieldValue, field.value)}
+                        />
+                      </div>
+                    )}
+                  </Field>
+                  <ErrorMessage name="image" component="div" className="form-error" />
+                  <button type="submit" className="enroll-btn material-symbols-outlined">Save</button>
+                  {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
+                  {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
                   <button type="button" onClick={cancelEdit} className="enroll-btn material-symbols-outlined">
                     Cancel
                   </button>

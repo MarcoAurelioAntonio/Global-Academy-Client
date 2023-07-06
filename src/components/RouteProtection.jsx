@@ -12,7 +12,7 @@ const RouteProtection = ({ children }) => {
 export default RouteProtection;
 
 RouteProtection.propTypes = {
-  children: PropTypes.elementType.isRequired,
+  children: PropTypes.shape().isRequired,
 };
 
 /* Al utilizar *** PropTypes.elementType, ***

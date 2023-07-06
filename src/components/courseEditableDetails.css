@@ -9,7 +9,7 @@
 
 .image-editable-container {
   margin-top: 8.5rem;
-  width: 40%;
+  width: 50%;
 }
 
 .details-information {
@@ -53,4 +53,10 @@
 
 .enroll-btn {
   margin-top: 0.5rem;
+}
+
+@media (max-width: 950px) {
+  .image-editable-container img {
+    height: 237px;
+  }
 }
