@@ -61,7 +61,7 @@ const Courses = ({ courses }) => {
             indicators
             autoPlay={false}
             navButtonsAlwaysVisible
-            cycleNavigation
+            cycleNavigation={false}
             navButtonsProps={{
               style: {
                 backgroundColor: 'transparent',

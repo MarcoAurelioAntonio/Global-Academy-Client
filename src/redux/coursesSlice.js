@@ -63,7 +63,6 @@ export const updateCourseById = createAsyncThunk(
     formData.append('course[start_date]', requestForm.start_date);
     formData.append('course[end_date]', requestForm.end_date);
     formData.append('course[price]', requestForm.price);
-    // console.log(formData);
 
     const response = await axios.patch(`http://localhost:3000/api/v1/courses/${requestForm.id}`, formData, {
       headers: {

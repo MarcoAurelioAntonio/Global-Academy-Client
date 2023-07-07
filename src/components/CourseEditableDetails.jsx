@@ -19,6 +19,7 @@ const CourseEditDetails = () => {
   const nameError = 'Course name already exists, please choose another';
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
+  const [image, setImage] = useState(false);
   const [imagePicker, setImagePicker] = useState(null);
 
   useEffect(() => {
@@ -73,6 +74,7 @@ const CourseEditDetails = () => {
         validate: () => imagePicker === null,
         message: 'You must choose an image',
       },
+
     };
 
     const validateField = (fieldName, value, values) => {
@@ -90,6 +92,10 @@ const CourseEditDetails = () => {
     return errors;
   };
 
+  const changeImage = () => {
+    setImage((prevImage) => !prevImage);
+  };
+
   const handleImageChange = (e, setFieldValue) => {
     const file = e.target.files[0];
     if (file) {
@@ -98,10 +104,10 @@ const CourseEditDetails = () => {
     }
   };
 
-  const handleSubmit = (requestForm) => {
+  const handleSubmitData = (requestForm) => {
     // console.log(requestForm);
     dispatch(updateCourseById(requestForm));
-    // console.log(values);
+
     setIsEditing(false);
     setTimeout(() => {
       dispatch(getCourseById(id));
@@ -126,7 +132,7 @@ const CourseEditDetails = () => {
           <Formik
             initialValues={course}
             enableReinitialize // this is needed to update the form when the course is loaded
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmitData}
             validate={validateForm}
           >
             <Form>
@@ -248,26 +254,38 @@ const CourseEditDetails = () => {
 
               {isEditing ? (
                 <>
-                  <p>Change Image</p>
-                  <Field name="image" className="form-input">
-                    {({ field, form }) => (
-                      <div>
-                        <input
-                          id="image"
-                          type="file"
-                          className="form-input"
-                          onChange={(e) => handleImageChange(e, form.setFieldValue, field.value)}
-                        />
-                      </div>
-                    )}
-                  </Field>
-                  <ErrorMessage name="image" component="div" className="form-error" />
+                  {image
+                    ? (
+                      <>
+                        <p>Change Image</p>
+                        <Field name="image" className="form-input">
+                          {({ field, form }) => (
+                            <div>
+                              <input
+                                id="image"
+                                type="file"
+                                className="form-input"
+                                onChange={
+                                  (e) => handleImageChange(e, form.setFieldValue, field.value)
+                                }
+                              />
+                            </div>
+                          )}
+                        </Field>
+                        <ErrorMessage name="image" component="div" className="form-error" />
+                      </>
+                    )
+                    : null}
+
                   <button type="submit" className="enroll-btn material-symbols-outlined">Save</button>
-                  {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
-                  {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
                   <button type="button" onClick={cancelEdit} className="enroll-btn material-symbols-outlined">
                     Cancel
                   </button>
+                  <button type="button" onClick={changeImage} className="enroll-btn material-symbols-outlined">
+                    Image
+                  </button>
+                  {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
+                  {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
                 </>
               ) : (
                 <button
