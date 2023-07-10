@@ -7,7 +7,7 @@ import {
   Field,
   ErrorMessage,
 } from 'formik';
-import { getCourseById, updateCourseById } from '../redux/coursesSlice';
+import { getCourseById, updateCourseById, updateImage } from '../redux/coursesSlice';
 import NavMenu from './NavMenu';
 import './courseEditableDetails.css';
 
@@ -19,7 +19,7 @@ const CourseEditDetails = () => {
   const nameError = 'Course name already exists, please choose another';
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
-  const [image, setImage] = useState(false);
+  const [image, setImage] = useState(null);
   const [imagePicker, setImagePicker] = useState(null);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const CourseEditDetails = () => {
 
   const cancelEdit = () => {
     setIsEditing((prevIsEditing) => !prevIsEditing);
+    setImage((prevImage) => !prevImage);
     dispatch(getCourseById(id));
   };
 
@@ -114,6 +115,16 @@ const CourseEditDetails = () => {
     }, 1000);
   };
 
+  const handleSubmitImage = (requestForm) => {
+    // console.log(requestForm);
+    dispatch(updateImage(requestForm));
+
+    setIsEditing(false);
+    setTimeout(() => {
+      dispatch(getCourseById(id));
+    }, 1000);
+  };
+
   return (
     <div className="flex">
       <NavMenu bgColor="green" isHide={false} isBacking={false} />
@@ -126,6 +137,47 @@ const CourseEditDetails = () => {
             src={course.image_url}
             alt={course.title}
           />
+
+          <Formik
+            initialValues={course}
+            enableReinitialize // this is needed to update the form when the course is loaded
+            onSubmit={handleSubmitImage}
+            validate={validateForm}
+          >
+            <Form>
+              {isEditing ? (
+                <>
+                  <button type="button" onClick={changeImage} className="enroll-btn material-symbols-outlined">
+                    Image
+                  </button>
+                  <button type="submit" className="enroll-btn material-symbols-outlined">Save</button>
+                  {formStatus === 'failed' && <p className="form-error">{formError}</p>}
+                  {image
+                    ? (
+                      <>
+                        <p>Change Image</p>
+                        <Field name="image" className="form-input">
+                          {({ field, form }) => (
+                            <div>
+                              <input
+                                id="image"
+                                type="file"
+                                className="form-input"
+                                onChange={
+                                  (e) => handleImageChange(e, form.setFieldValue, field.value)
+                                }
+                              />
+                            </div>
+                          )}
+                        </Field>
+                        <ErrorMessage name="image" component="div" className="form-error" />
+
+                      </>
+                    ) : null}
+                </>
+              ) : null}
+            </Form>
+          </Formik>
         </div>
 
         <div className="details-information">
@@ -254,36 +306,11 @@ const CourseEditDetails = () => {
 
               {isEditing ? (
                 <>
-                  {image
-                    ? (
-                      <>
-                        <p>Change Image</p>
-                        <Field name="image" className="form-input">
-                          {({ field, form }) => (
-                            <div>
-                              <input
-                                id="image"
-                                type="file"
-                                className="form-input"
-                                onChange={
-                                  (e) => handleImageChange(e, form.setFieldValue, field.value)
-                                }
-                              />
-                            </div>
-                          )}
-                        </Field>
-                        <ErrorMessage name="image" component="div" className="form-error" />
-                      </>
-                    )
-                    : null}
-
                   <button type="submit" className="enroll-btn material-symbols-outlined">Save</button>
                   <button type="button" onClick={cancelEdit} className="enroll-btn material-symbols-outlined">
                     Cancel
                   </button>
-                  <button type="button" onClick={changeImage} className="enroll-btn material-symbols-outlined">
-                    Image
-                  </button>
+
                   {formStatus === 'failed' && formError !== 'Request failed with status code 422' && <p className="form-error">{formError}</p>}
                   {formStatus === 'failed' && formError === 'Request failed with status code 422' && <p className="form-error">{nameError}</p>}
                 </>

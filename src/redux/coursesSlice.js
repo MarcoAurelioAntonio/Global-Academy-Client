@@ -59,10 +59,26 @@ export const updateCourseById = createAsyncThunk(
     formData.append('course[name]', requestForm.name);
     formData.append('course[course_type]', requestForm.course_type);
     formData.append('course[description]', requestForm.description);
-    formData.append('course[image]', requestForm.image);
+    // formData.append('course[image]', requestForm.image);
     formData.append('course[start_date]', requestForm.start_date);
     formData.append('course[end_date]', requestForm.end_date);
     formData.append('course[price]', requestForm.price);
+
+    const response = await axios.patch(`http://localhost:3000/api/v1/courses/${requestForm.id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    thunkAPI.dispatch(getAllCoursesApi());
+    return response.data;
+  },
+);
+
+export const updateImage = createAsyncThunk(
+  'courses/updateImage',
+  async (requestForm, thunkAPI) => {
+    const formData = new FormData();
+    formData.append('course[image]', requestForm.image);
 
     const response = await axios.patch(`http://localhost:3000/api/v1/courses/${requestForm.id}`, formData, {
       headers: {
