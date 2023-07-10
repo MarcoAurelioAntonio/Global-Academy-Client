@@ -25,93 +25,37 @@ const AddCourse = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (formStatus === 'succeed') {
-      setTimeout(() => {
+    if (formStatus === 'failed') {
+      // This fix CONTENT SECURITY POLICY error in browser console.
+      // Instead using only setTimeout.
+      const timeoutId = setTimeout(() => {
         setIsLoading(false);
-        history('/');
-      }, 3000);
-    } else if (formStatus === 'failed') {
-      setTimeout(() => {
-        setIsLoading(false);
+        // Any cleanup operations go here
       }, 1500);
-    }
-  }, [formStatus, history]);
 
-  const handleSubmit = (requestForm) => {
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+
+    return () => {
+      // Any cleanup operations go here
+    };
+  }, [formStatus]);
+
+  const handleSubmit = (requestForm, { resetForm }) => {
     dispatch(postApiCourseForm(requestForm));
-
     setIsLoading(true);
-  };
+    resetForm();
 
-  const validateForm = (values) => {
-    const errors = {};
-
-    const errorMessages = {
-      name: {
-        validate: (value) => !value || value.length < 3,
-        message: 'Name is required or must be at least 3 characters long',
-      },
-      start_date: {
-        validate: (value) => {
-          const startDate = new Date(value);
-          return !startDate || startDate < new Date();
-        },
-        message: 'Start date is required or must be greater than today',
-      },
-      end_date: {
-        validate: (value, values) => {
-          const startDate = new Date(values.start_date);
-          const endDate = new Date(value);
-          return !endDate || endDate < startDate;
-        },
-        message: 'End date is required or must be greater than start date',
-      },
-      description: {
-        validate: (value) => !value || value.length < 30,
-        message: 'Description is required or must be at least 30 characters long',
-      },
-      course_type: {
-        validate: (value) => !value || value.length < 3,
-        message: 'Course type is required or must be at least 3 characters long',
-      },
-      price: {
-        validate: (value) => (!value || value < 0) && value !== 0,
-        message: 'Price is required or must be a positive number',
-      },
-      image: {
-        validate: () => imagePicker === null,
-        message: 'You must choose an image',
-      },
+    // This fix unexpected redirect to home page.
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+      history('/');
+    }, 3000);
+    return () => {
+      clearTimeout(timeoutId);
     };
-
-    const validateField = (fieldName, value, values) => {
-      const { validate, message } = errorMessages[fieldName];
-      return validate(value, values) ? message : null;
-    };
-
-    Object.keys(errorMessages).forEach((fieldName) => {
-      const errorMessage = validateField(fieldName, values[fieldName], values);
-      if (errorMessage) {
-        errors[fieldName] = errorMessage;
-      }
-    });
-
-    // Check how many fields are completed
-    const completedFields = Object.values(values).filter((value) => value !== '').length;
-    const totalFields = Object.keys(values).length;
-    const newProgress = Math.round((completedFields / totalFields) * 100);
-
-    setProgress(completedFields === 0 ? 0 : newProgress);
-
-    return errors;
-  };
-
-  const handleImageChange = (e, setFieldValue) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFieldValue('image', file);
-      setImagePicker(file);
-    }
   };
 
   const initialValues = {
@@ -122,6 +66,57 @@ const AddCourse = () => {
     course_type: '',
     price: '',
     image: '',
+  };
+
+  const validateForm = (values) => {
+    const errors = {};
+    if (!values.name || values.name.length < 3) {
+      errors.name = 'Name is required ir must be at least 3 characters long';
+    }
+
+    const startDate = new Date(values.start_date);
+    if (!startDate || startDate < new Date()) {
+      errors.start_date = 'Start date is required or must be greater than today';
+    }
+
+    const startDate2 = new Date(values.start_date);
+    const endDate = new Date(values.end_date);
+    if (!endDate || endDate < startDate2) {
+      errors.end_date = 'End date is required or must be greater than start date';
+    }
+    if (!values.description || values.description.length < 30) {
+      errors.description = 'Description is required or must be at least 30 characters long';
+    }
+    if (!values.course_type || values.course_type.length < 3) {
+      errors.course_type = 'Course type is required or must be at least 3 characters long';
+    }
+    if (!values.price || values.price < 0) {
+      errors.price = 'Price is required or must be a positive number';
+    }
+    if (imagePicker === null) {
+      errors.image = 'You must choose an image';
+    }
+
+    // Check how many fields are completed
+    const completedFields = Object.values(values).filter((value) => value !== '').length;
+    const totalFields = Object.keys(values).length;
+    const newProgress = Math.round((completedFields / totalFields) * 100);
+
+    setProgress(newProgress);
+
+    if (completedFields === 0) {
+      setProgress(0);
+    }
+
+    return errors;
+  };
+
+  const handleImageChange = (e, setFieldValue) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFieldValue('image', file);
+      setImagePicker(file);
+    }
   };
 
   return (
