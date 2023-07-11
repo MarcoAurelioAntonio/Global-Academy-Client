@@ -1,29 +1,30 @@
 /* Style for the form */
-.form-container {
+.contact-container {
   border: 1px solid #ddd;
   padding: 40px 60px;
   max-width: 400px;
   margin: 80px auto;
+  background-color: #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.form-contact-group {
   margin-bottom: 20px;
 }
 
-label {
+.input-label {
   display: block;
   font-weight: bold;
 }
 
-input,
-textarea {
+.input-in {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button[type="submit"] {
+.contact-button[type="submit"] {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -32,7 +33,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.contact-button[type="submit"]:hover {
   background-color: #0069d9;
 }
 
