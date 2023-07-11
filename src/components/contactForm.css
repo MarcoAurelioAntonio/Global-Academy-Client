@@ -1,5 +1,7 @@
 /* Style for the form */
 .form-container {
+  border: 1px solid #ddd;
+  padding: 40px 60px;
   max-width: 400px;
   margin: 80px auto;
 }
