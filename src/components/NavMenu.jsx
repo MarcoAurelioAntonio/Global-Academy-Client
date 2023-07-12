@@ -44,6 +44,8 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
         </span>
       </button>
 
+      <span className="user-logued">{localStorage.getItem('name')}</span>
+
       <button
         type="button"
         className="close-menu"
@@ -73,6 +75,10 @@ const NavMenu = ({ bgColor, isBacking, isHide }) => {
         <div className={`nav_item ${(location.pathname === '/delete_course' && 'active') || 'notActive'}`}>
           <NavLink to="/delete_course">DELETE COURSE</NavLink>
         </div>
+        <div className={`nav_item ${(location.pathname === '/contact' && 'active') || 'notActive'}`}>
+          <NavLink to="/contact">CONTACT</NavLink>
+        </div>
+
       </div>
       {
         isBacking ? (

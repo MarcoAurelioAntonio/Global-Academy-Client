@@ -23,7 +23,10 @@ const AddReservation = () => {
   const handleClick = (ev) => {
     ev.preventDefault();
     dispatch(reset());
-    const reservation = { user_id: user.id, course_id: course };
+    const reservation = {
+      user_id: user.id,
+      course_id: course,
+    };
     dispatch(postReservationToAPI(reservation));
     setTimeout(() => dispatch(reset()), 5000);
   };
@@ -82,7 +85,6 @@ const AddReservation = () => {
                 </select>
               )}
             </label>
-            <br />
             <button
               className="enroll-btn-ken"
               type="submit"
@@ -91,13 +93,13 @@ const AddReservation = () => {
               ENROLL NOW
             </button>
           </form>
-          <section className="msg-section">
-            <p className="error">{error}</p>
-            <p className="success">
-              {enrolled && 'You have been enrolled successfully. Enjoy learning!'}
-            </p>
-          </section>
         </div>
+        <section className="msg-section">
+          <p className="error">{error}</p>
+          <p className="success">
+            {enrolled && 'You have been enrolled successfully. Enjoy learning!'}
+          </p>
+        </section>
       </section>
     </div>
   );

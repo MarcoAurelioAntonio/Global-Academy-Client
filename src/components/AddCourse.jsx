@@ -25,22 +25,47 @@ const AddCourse = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (formStatus === 'succeed') {
-      setTimeout(() => {
+    if (formStatus === 'failed') {
+      // This fix CONTENT SECURITY POLICY error in browser console.
+      // Instead using only setTimeout.
+      const timeoutId = setTimeout(() => {
         setIsLoading(false);
-        history('/');
-      }, 3000);
-    } else if (formStatus === 'failed') {
-      setTimeout(() => {
-        setIsLoading(false);
+        // Any cleanup operations go here
       }, 1500);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
-  }, [formStatus, history]);
 
-  const handleSubmit = (requestForm) => {
+    return () => {
+      // Any cleanup operations go here
+    };
+  }, [formStatus]);
+
+  const handleSubmit = (requestForm, { resetForm }) => {
     dispatch(postApiCourseForm(requestForm));
-
     setIsLoading(true);
+    resetForm();
+
+    // This fix unexpected redirect to home page.
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+      history('/');
+    }, 3000);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  };
+
+  const initialValues = {
+    name: '',
+    start_date: '',
+    end_date: '',
+    description: '',
+    course_type: '',
+    price: '',
+    image: '',
   };
 
   const validateForm = (values) => {
@@ -92,16 +117,6 @@ const AddCourse = () => {
       setFieldValue('image', file);
       setImagePicker(file);
     }
-  };
-
-  const initialValues = {
-    name: '',
-    start_date: '',
-    end_date: '',
-    description: '',
-    course_type: '',
-    price: '',
-    image: '',
   };
 
   return (

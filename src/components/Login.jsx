@@ -19,16 +19,22 @@ const Login = () => {
   const handleLoginClick = (ev) => {
     ev.preventDefault();
     dispatch(getUserFromAPI(inputs.name));
+    const { name } = inputs;
+    localStorage.setItem('name', name);
   };
 
   const handleRegisterClick = (ev) => {
     ev.preventDefault();
     dispatch(postUserToAPI(inputs));
+    const { name } = inputs;
+    localStorage.setItem('name', name);
   };
 
   // Redirect if user successfully logged in
   if (status === 'succeed') {
-    setTimeout(() => history('/'));
+    setTimeout(() => {
+      history('/');
+    }, 1500);
   }
 
   return (
@@ -55,7 +61,11 @@ const Login = () => {
           <section className="msg-section">
             <p className="error">{error}</p>
           </section>
-          <button className="lg-btn" type="submit" disabled={status === 'loading' && true}>
+          <button
+            className="lg-btn"
+            type="submit"
+            disabled={status === 'loading' && true}
+          >
             Login
           </button>
           <button

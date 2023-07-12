@@ -350,6 +350,7 @@ img.avatar {
 }
 
 .msg-section {
+  height: 25px;
   padding: 2px;
   text-align: center;
 }
@@ -440,6 +441,18 @@ img.avatar {
   border-radius: 20px;
   cursor: pointer;
   width: 100%;
+}
+
+.user-logued {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px 8px;
+  border: 1px solid #98bf0c;
+  border-radius: 15px;
+  width: fit-content;
+  margin: 0 auto 12px auto;
 }
 
 /* ==================== Enrollment ends ======================= */

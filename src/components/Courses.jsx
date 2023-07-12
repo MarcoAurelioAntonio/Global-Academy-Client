@@ -6,9 +6,6 @@ import arrowNext from '../assets/images/carousel-arrow-left.png';
 import arrowBack from '../assets/images/carousel-arrow-rigth.png';
 
 const Courses = ({ courses }) => {
-  let itemsPushed = [];
-  const finalItems = [];
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -24,6 +21,21 @@ const Courses = ({ courses }) => {
     };
   }, []);
 
+  const finalItems = [];
+  let itemsPushed = [];
+
+  courses.forEach((item, i) => {
+    const ii = i + 1;
+
+    itemsPushed.push(item);
+
+    if (ii % 3 === 0 || courses.length === ii) {
+      finalItems.push([...itemsPushed]);
+      itemsPushed = [];
+    }
+  });
+
+  /*
   courses.map((item, i) => {
     const ii = i + 1;
     if (ii % 3 === 0) {
@@ -36,11 +48,9 @@ const Courses = ({ courses }) => {
         finalItems.push(itemsPushed);
       }
     }
-    return {
-      itemsPushed,
-      finalItems,
-    };
+    return (itemsPushed, finalItems);
   });
+  */
 
   return (
     <>
@@ -55,9 +65,6 @@ const Courses = ({ courses }) => {
             navButtonsProps={{
               style: {
                 backgroundColor: 'transparent',
-                borderRadius: 0,
-                padding: 0,
-                margin: 0,
               },
             }}
             NextIcon={<img className="carousel-icon" src={arrowNext} alt="next-arrow" />}

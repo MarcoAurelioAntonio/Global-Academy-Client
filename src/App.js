@@ -10,6 +10,8 @@ import AddReservation from './components/AddReservation';
 import Home from './components/Home';
 import AddCourse from './components/AddCourse';
 import DeleteCourse from './components/DeleteCourse';
+import CourseEditDetails from './components/CourseEditableDetails';
+import ContactForm from './components/ContactForm';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +47,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/all_user_reservations',
-        element: <RouteProtection><DisplayReservations /></RouteProtection>,
+        element: (
+          <RouteProtection>
+            <DisplayReservations />
+          </RouteProtection>
+        ),
       },
       {
         path: '/add_course',
@@ -58,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <RouteProtection><Home /></RouteProtection>,
+      },
+      {
+        path: '/edit-course/:id',
+        element: <RouteProtection><CourseEditDetails /></RouteProtection>,
+      },
+      {
+        path: '/contact',
+        element: <RouteProtection><ContactForm /></RouteProtection>,
       },
     ],
   },
